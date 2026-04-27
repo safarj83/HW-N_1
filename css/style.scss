@@ -125,7 +125,8 @@ body {
   width: 378px;
   height: 473px;
   margin-bottom: 32px;
-
+ display: block;
+  text-decoration: none;
   grid-template-columns: 1fr 1fr;
   /* Изображение и текст — по 50% */
   gap: 20px;

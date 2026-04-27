@@ -35,7 +35,7 @@
       — в них может поиграть каждый. <br>Все игры доступны для пользования.
     </p>
     <div class="games-section__grid">
-      <div class="game-card">
+       <a href="#game-guess-number" class="game-card">
         <div class="game-card__image-wrapper">
           <img src="/images/path-to-your-image-1.jpg" alt="Угадай число" class="game-card__image">
         </div>
@@ -43,44 +43,44 @@
           <h3 class="game-card__number">Игра №1</h3>
           <p class="game-card__name">Угадай число</p>
         </div>
-      </div>
-      <div class="game-card game-card-big">
+      </a>
+      <a href="#game-rock-paper-scissors" class="game-card game-card-big">
         <div class="game-card__image-wrapper">
-          <img src="/images/path-to-your-image-4.jpg" alt="Простая арифметика" class="game-card__image">
+          <img src="/images/path-to-your-image-4.jpg" alt="Камень, ножницы, бумага" class="game-card__image">
         </div>
         <div class="game-card__content">
           <h3 class="game-card__number">Игра №4</h3>
           <p class="game-card__name">Камень, ножницы, бумага</p>
         </div>
-      </div>
-      <div class="game-card game-card-big">
+      </a>
+      <a href="#game-simple-math" class="game-card game-card-big">
         <div class="game-card__image-wrapper">
-          <img src="/images/path-to-your-image-2.jpg" alt="Переверни текст" class="game-card__image">
+          <img src="/images/path-to-your-image-2.jpg" alt="Простая арифметика" class="game-card__image">
         </div>
         <div class="game-card__content">
-          <h3 class="game-card__number">Игра № 2</h3>
+          <h3 class="game-card__number">Игра №2</h3>
           <p class="game-card__name">Простая арифметика</p>
         </div>
-      </div>
-      <div class="game-card">
+      </a>
+      <a href="#game-quiz" class="game-card">
         <div class="game-card__image-wrapper">
-          <img src="/images/path-to-your-image-5.jpg" alt="Камень, ножницы, бумага" class="game-card__image">
+          <img src="/images/path-to-your-image-5.jpg" alt="Простая викторина" class="game-card__image">
         </div>
         <div class="game-card__content">
           <h3 class="game-card__number">Игра №5</h3>
           <p class="game-card__name">Простая викторина</p>
         </div>
-      </div>
-      <div class="game-card">
+      </a>
+      <a href="#game-reverse-text" class="game-card">
         <div class="game-card__image-wrapper">
-          <img src="/images/path-to-your-image-3.jpg" alt="Простая викторина" class="game-card__image">
+          <img src="/images/path-to-your-image-3.jpg" alt="Переверни текст" class="game-card__image">
         </div>
         <div class="game-card__content">
           <h3 class="game-card__number">Игра №3</h3>
           <p class="game-card__name">Переверни текст</p>
         </div>
-      </div>
-      <div class="game-card game-card-big">
+      </a>
+      <a href="#game-random-color" class="game-card game-card-big">
         <div class="game-card__image-wrapper">
           <img src="/images/path-to-your-image-6.jpg" alt="Генератор случайных цветов" class="game-card__image">
         </div>
@@ -88,7 +88,7 @@
           <h3 class="game-card__number">Игра №6</h3>
           <p class="game-card__name">Генератор случайных цветов</p>
         </div>
-      </div>
+      </a>
     </div>
   </div>
 
@@ -234,6 +234,29 @@
           }
         });
       }
+         // Добавляем обработчик для карточек в блоке «Об играх»
+      const gameCardLinks = document.querySelectorAll(".games-section__grid a");
+      gameCardLinks.forEach(link => {
+        link.addEventListener("click", (e) => {
+          // Предотвращаем стандартное поведение ссылки (переход)
+          e.preventDefault();
+
+          // Получаем ID целевого раздела из href ссылки
+          const targetId = link.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+
+          if (targetSection) {
+            // Плавно прокручиваем к нужному разделу с игрой
+            targetSection.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+          } else {
+            // Если раздел не найден, показываем предупреждение
+            alert(`Раздел с игрой "${link.querySelector(".game-card__name").textContent}" пока недоступен.`);
+          }
+        });
+      });
     })();
   </script>
 </body>
