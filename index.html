@@ -4,9 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
   <title>Сайт мини-игр</title>
   <link rel="stylesheet" href="css/style.css">
   <link href="fonts/your-font.css" rel="stylesheet">
@@ -35,12 +36,15 @@
       — в них может поиграть каждый. <br>Все игры доступны для пользования.
     </p>
     <div class="games-section__grid">
-       <a href="#game-guess-number" class="game-card">
+      <a href="#game-guess-number" class="game-card">
         <div class="game-card__image-wrapper">
           <img src="/images/path-to-your-image-1.jpg" alt="Угадай число" class="game-card__image">
         </div>
         <div class="game-card__content">
+          
+<div class="game-card__number-block">
           <h3 class="game-card__number">Игра №1</h3>
+</div>
           <p class="game-card__name">Угадай число</p>
         </div>
       </a>
@@ -49,7 +53,9 @@
           <img src="/images/path-to-your-image-4.jpg" alt="Камень, ножницы, бумага" class="game-card__image">
         </div>
         <div class="game-card__content">
+          <div class="game-card__number-block">
           <h3 class="game-card__number">Игра №4</h3>
+          </div>
           <p class="game-card__name">Камень, ножницы, бумага</p>
         </div>
       </a>
@@ -58,7 +64,9 @@
           <img src="/images/path-to-your-image-2.jpg" alt="Простая арифметика" class="game-card__image">
         </div>
         <div class="game-card__content">
+          <div class="game-card__number-block">
           <h3 class="game-card__number">Игра №2</h3>
+          </div>
           <p class="game-card__name">Простая арифметика</p>
         </div>
       </a>
@@ -67,7 +75,9 @@
           <img src="/images/path-to-your-image-5.jpg" alt="Простая викторина" class="game-card__image">
         </div>
         <div class="game-card__content">
+          <div class="game-card__number-block">
           <h3 class="game-card__number">Игра №5</h3>
+          </div>
           <p class="game-card__name">Простая викторина</p>
         </div>
       </a>
@@ -76,7 +86,9 @@
           <img src="/images/path-to-your-image-3.jpg" alt="Переверни текст" class="game-card__image">
         </div>
         <div class="game-card__content">
+          <div class="game-card__number-block">
           <h3 class="game-card__number">Игра №3</h3>
+          </div>
           <p class="game-card__name">Переверни текст</p>
         </div>
       </a>
@@ -85,7 +97,9 @@
           <img src="/images/path-to-your-image-6.jpg" alt="Генератор случайных цветов" class="game-card__image">
         </div>
         <div class="game-card__content">
+           <div class="game-card__number-block">
           <h3 class="game-card__number">Игра №6</h3>
+          </div>
           <p class="game-card__name">Генератор случайных цветов</p>
         </div>
       </a>
@@ -234,7 +248,7 @@
           }
         });
       }
-         // Добавляем обработчик для карточек в блоке «Об играх»
+      // Обработчик для карточек в блоке «Об играх»
       const gameCardLinks = document.querySelectorAll(".games-section__grid a");
       gameCardLinks.forEach(link => {
         link.addEventListener("click", (e) => {

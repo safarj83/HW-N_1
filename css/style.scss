@@ -125,7 +125,7 @@ body {
   width: 378px;
   height: 473px;
   margin-bottom: 32px;
- display: block;
+  display: block;
   text-decoration: none;
   grid-template-columns: 1fr 1fr;
   /* Изображение и текст — по 50% */
@@ -172,7 +172,7 @@ body {
   }
 
   &__content {
-    padding: 15px;
+    padding-left: 32px;
     width: 378px;
     height: 198px;
     background-color: white;
@@ -183,6 +183,26 @@ body {
     font-weight: 500;
     font-size: 16px;
     color: #202027;
+
+
+  }
+
+  &__number-block {
+    display: flex;
+    justify-content: center;
+    /* по горизонтали (дублирует text-align, можно оставить одно) */
+    align-items: center;
+    /* Серый фон */
+    background-color: #f7f7f7;
+    /* светло-серый, можно поменять на нужный оттенок */
+    /* Скруглённые углы как на изображении */
+    border-radius: 52.58px;
+    /* Отступы вокруг блока */
+    box-sizing: border-box;
+    /* Ширина и высота (по необходимости) */
+    width: 108px;
+    /* можно задать любую ширину */
+    height: 36px;
     margin-top: 32px;
   }
 
@@ -218,6 +238,7 @@ body {
   flex-wrap: wrap;
   gap: 32px;
 }
+
 /* ===== КАРТОЧКИ «МИНИ-ИГРЫ» ===== */
 .mini-game-card {
   display: flex;
@@ -304,18 +325,28 @@ body {
   object-fit: cover;
   /* Заполняем блок, обрезая лишнее */
 }
+
 .footer {
-  background-color: #bded35; /* Тёмный фон, как на макете */
-  padding: 20px 0; /* Отступы сверху/снизу */
-  text-align: center; /* Выравнивание текста по центру */
-margin-top: 144px;
+  background-color: #bded35;
+  /* Тёмный фон, как на макете */
+  padding: 20px 0;
+  /* Отступы сверху/снизу */
+  text-align: center;
+  /* Выравнивание текста по центру */
+  margin-top: 144px;
 }
 
 .footer__copyright {
-  color: #000; /* Белый цвет текста для контраста */
-  font-family: 'Montserrat', sans-serif; /* Шрифт из макета */
-  font-weight: 600; /* Жирный шрифт */
-  font-size: 24px; /* Размер шрифта как на макете */
-  line-height: 1; /* Межстрочный интервал */
-  margin: 0; /* Убираем стандартные отступы p */
+  color: #000;
+  /* Белый цвет текста для контраста */
+  font-family: 'Montserrat', sans-serif;
+  /* Шрифт из макета */
+  font-weight: 600;
+  /* Жирный шрифт */
+  font-size: 24px;
+  /* Размер шрифта как на макете */
+  line-height: 1;
+  /* Межстрочный интервал */
+  margin: 0;
+  /* Убираем стандартные отступы p */
 }

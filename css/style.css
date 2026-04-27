@@ -35,7 +35,8 @@ body {
   background-image: url(/images/main\ start.svg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: top; /*Хеадер (Шапка сайта)*/
+  background-position: top;
+  /*Хеадер (Шапка сайта)*/
 }
 .header__wrapper {
   /* вместо фиксированной ширины — максимальная */
@@ -111,7 +112,8 @@ body {
   width: 378px;
   height: 473px;
   margin-bottom: 32px;
-  grid-template-columns: 1fr 1fr; /* Изображение и текст — по 50% */
+  grid-template-columns: 1fr 1fr;
+  /* Изображение и текст — по 50% */
   gap: 20px;
   border-radius: 30px;
   overflow: hidden;
@@ -125,7 +127,8 @@ body {
 .game-card-big {
   width: 378px;
   height: 512px;
-  grid-template-columns: 1fr 1fr; /* Изображение и текст — по 50% */
+  grid-template-columns: 1fr 1fr;
+  /* Изображение и текст — по 50% */
   gap: 20px;
   border-radius: 30px;
   overflow: hidden;
@@ -149,7 +152,7 @@ body {
   display: block;
 }
 .game-card__content {
-  padding: 15px;
+  padding-left: 32px;
   width: 378px;
   height: 198px;
   background-color: white;
@@ -159,6 +162,19 @@ body {
   font-weight: 500;
   font-size: 16px;
   color: #202027;
+}
+.game-card__number-block {
+  /* Серый фон */
+  background-color: #f7f7f7;
+  /* светло-серый, можно поменять на нужный оттенок */
+  /* Скруглённые углы как на изображении */
+  border-radius: 52.58px;
+  /* Отступы вокруг блока */
+  box-sizing: border-box;
+  /* Ширина и высота (по необходимости) */
+  width: 108px;
+  /* можно задать любую ширину */
+  height: 36px;
   margin-top: 32px;
 }
 .game-card__name {
@@ -432,7 +448,7 @@ body {
   display: block;
 }
 .game-card__content {
-  padding: 15px;
+  padding-left: 32px;
   width: 378px;
   height: 198px;
   background-color: white;
@@ -442,6 +458,23 @@ body {
   font-weight: 500;
   font-size: 16px;
   color: #202027;
+}
+.game-card__number-block {
+  display: flex;
+  justify-content: center;
+  /* по горизонтали (дублирует text-align, можно оставить одно) */
+  align-items: center;
+  /* Серый фон */
+  background-color: #f7f7f7;
+  /* светло-серый, можно поменять на нужный оттенок */
+  /* Скруглённые углы как на изображении */
+  border-radius: 52.58px;
+  /* Отступы вокруг блока */
+  box-sizing: border-box;
+  /* Ширина и высота (по необходимости) */
+  width: 108px;
+  /* можно задать любую ширину */
+  height: 36px;
   margin-top: 32px;
 }
 .game-card__name {
@@ -561,17 +594,26 @@ body {
 }
 
 .footer {
-  background-color: #bded35; /* Тёмный фон, как на макете */
-  padding: 20px 0; /* Отступы сверху/снизу */
-  text-align: center; /* Выравнивание текста по центру */
+  background-color: #bded35;
+  /* Тёмный фон, как на макете */
+  padding: 20px 0;
+  /* Отступы сверху/снизу */
+  text-align: center;
+  /* Выравнивание текста по центру */
   margin-top: 144px;
 }
 
 .footer__copyright {
-  color: #000; /* Белый цвет текста для контраста */
-  font-family: "Montserrat", sans-serif; /* Шрифт из макета */
-  font-weight: 600; /* Жирный шрифт */
-  font-size: 24px; /* Размер шрифта как на макете */
-  line-height: 1; /* Межстрочный интервал */
-  margin: 0; /* Убираем стандартные отступы p */
+  color: #000;
+  /* Белый цвет текста для контраста */
+  font-family: "Montserrat", sans-serif;
+  /* Шрифт из макета */
+  font-weight: 600;
+  /* Жирный шрифт */
+  font-size: 24px;
+  /* Размер шрифта как на макете */
+  line-height: 1;
+  /* Межстрочный интервал */
+  margin: 0;
+  /* Убираем стандартные отступы p */
 }/*# sourceMappingURL=style.css.map */
