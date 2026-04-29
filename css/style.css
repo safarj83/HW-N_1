@@ -32,7 +32,7 @@ body {
 .header {
   height: 710px;
   background-color: #E1FF8F;
-  background-image: url(/images/main\ start.svg);
+  background-image: url(/HW-N_1/images/main\ start.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -326,7 +326,7 @@ body {
 .header {
   height: 710px;
   background-color: #E1FF8F;
-  background-image: url(/images/main\ start.svg);
+  background-image: url(/HW-N_1/images/main\ start.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -373,7 +373,7 @@ body {
 .games-section {
   background-color: #202027;
   padding-bottom: 94px;
-  background-image: url(/images/mini\ -images.svg);
+  background-image: url(/HW-N_1/images/mini\ -images.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top 77px;
@@ -616,4 +616,186 @@ body {
   /* Межстрочный интервал */
   margin: 0;
   /* Убираем стандартные отступы p */
+}
+
+/*Общие стили*/
+@media (max-width: 767px) {
+  .center {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+/* Хедер */
+@media (max-width: 767px) {
+  .header {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    height: 700px;
+    background-color: #E1FF8F;
+    background-image: url(/HW-N_1/images/main\ start.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+  }
+  .header__wrapper {
+    height: 371px;
+    max-width: 343px;
+    padding-top: 147px;
+  }
+  .header__title {
+    display: -webkit-inline-box;
+    width: 296px;
+    font-weight: 700;
+    font-size: 40px;
+    margin-bottom: 24px;
+    text-align: center;
+  }
+  .header__subtitle {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 36px;
+    text-align: center;
+    line-height: 1.4;
+  }
+  .header__button {
+    width: 285px;
+    padding: 16px 103.5px;
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
+@media (max-width: 767px) {
+  .games-section {
+    display: none;
+  }
+}
+/* ===== СЕКЦИЯ «МИНИ-ИГРЫ» ===== */
+@media (max-width: 767px) {
+  .mini-games__section {
+    background-color: #202027;
+    padding-bottom: 94px;
+    background-image: url(/images/mini-images.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top 77px;
+    margin-bottom: 144px;
+  }
+  .mini-games-section__title {
+    font-weight: 700;
+    font-size: 40px;
+    color: #ffffff;
+    margin-top: 48px;
+  }
+  .mini-games-section__grid {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение карточек */
+    gap: 24px; /* Отступы между карточками */
+  }
+  /* ===== КАРТОЧКИ «МИНИ-ИГРЫ» ===== */
+  .mini-game-card {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%; /* Занимают всю ширину экрана */
+    height: auto; /* Убрали жёсткую высоту — теперь зависит от контента */
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  .mini-game-card:hover {
+    transform: translateY(-3px);
+  }
+  .mini-game-card-mob {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Занимают всю ширину экрана */
+    height: auto; /* Убрали жёсткую высоту — теперь зависит от контента */
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+  .mini-game-card-mob:hover {
+    transform: translateY(-3px);
+  }
+  .mini-game-card__content {
+    padding: 29px 29px 32px;
+    width: 100%; /* Ширина 100% для вертикального макета */
+    height: 221px;
+  }
+  .mini-game-card__title {
+    font-weight: 700;
+    font-size: 32px;
+    color: #202027;
+    margin-bottom: 16px;
+  }
+  .mini-game-card__description {
+    font-weight: 400;
+    font-size: 16px;
+    margin-bottom: 32px;
+  }
+  .mini-game-card__button {
+    padding: 16px 110px;
+    border: none;
+    border-radius: 60px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%; /* Кнопка занимает всю ширину карточки */
+  }
+  .mini-game-card__button-play {
+    background-color: #202027;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  .mini-game-card__button-play:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+  /* Исправляем разметку для вертикального макета */
+  .mini-game-card__content,
+  .mini-game-card__image-wrapper {
+    flex: 1;
+    max-width: none; /* Убираем ограничение 50% — теперь полноэкранные */
+  }
+  .mini-game-card__image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ширина 100% для вертикального макета */
+  }
+  .mini-game-card__image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+}
+@media (max-width: 767px) {
+  .footer {
+    background-color: #bded35;
+    /* Тёмный фон, как на макете */
+    padding: 20px 0;
+    /* Отступы сверху/снизу */
+    text-align: center;
+    /* Выравнивание текста по центру */
+    margin-top: 10px;
+  }
+  .footer__copyright {
+    color: #000;
+    /* Белый цвет текста для контраста */
+    font-family: "Montserrat", sans-serif;
+    /* Шрифт из макета */
+    font-weight: 600;
+    /* Жирный шрифт */
+    font-size: 16px;
+    /* Размер шрифта как на макете */
+    line-height: 1;
+    /* Межстрочный интервал */
+    margin: 0;
+    /* Убираем стандартные отступы p */
+  }
 }/*# sourceMappingURL=style.css.map */
