@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Сайт мини-игр</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="fonts/your-font.css" rel="stylesheet" />
+  </head>
+   <body>
+    <!-- БЛОК «Добро пожаловать» -->
+    <header class="header center">
+      <div class="header__wrapper">
+        <h1 class="header__title">
+          Добро&nbsp;пожаловать на&nbsp;мой сайт мини-игр
+        </h1>
+        <p class="header__subtitle">
+          Тебе предстоит пройти несколько увлекательных игр. <br />Если готов,
+          нажимай <b>«Поехали!»</b> и <b>приступай.</b>
+        </p>
+        <button class="header__button header__button-start">Поехали!</button>
+      </div>
+    </header>
+     <!-- БЛОК «Об играх» -->
+    <div class="games-section center">
+      <h2 class="games-section__title">Об играх</h2>
+      <p class="games-section__description">
+        В моей коллекции представлено 6 игр на разные темы. Игры&nbsp;несложные
+        — в них может поиграть каждый. <br />Все игры доступны для пользования.
+      </p>
+      <div class="games-section__grid">
+        <div class="game-card">
+          <div class="game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-1.jpg"
+              alt="Угадай число"
+              class="game-card__image"
+            />
+          </div>
+          <div class="game-card__content">
+            <h3 class="game-card__number">Игра №1</h3>
+            <p class="game-card__name">Угадай число</p>
+          </div>
+        </div>
+        <div class="game-card game-card-big">
+          <div class="game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-4.jpg"
+              alt="Простая арифметика"
+              class="game-card__image"
+            />
+          </div>
+          <div class="game-card__content">
+            <h3 class="game-card__number">Игра №4</h3>
+            <p class="game-card__name">Камень, ножницы,  бумага</p>
+          </div>
+        </div>
+        <div class="game-card game-card-big">
+          <div class="game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-2.jpg"
+              alt="Переверни текст"
+              class="game-card__image"
+            />
+          </div>
+          <div class="game-card__content">
+            <h3 class="game-card__number">Игра № 2</h3>
+            <p class="game-card__name">Простая арифметика</p>
+          </div>
+        </div>
+        <div class="game-card">
+          <div class="game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-5.jpg"
+              alt="Камень, ножницы, бумага"
+              class="game-card__image"
+            />
+          </div>
+          <div class="game-card__content">
+            <h3 class="game-card__number">Игра №5</h3>
+            <p class="game-card__name">Простая викторина</p>
+          </div>
+        </div>
+        <div class="game-card">
+          <div class="game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-3.jpg"
+              alt="Простая викторина"
+              class="game-card__image"
+            />
+          </div>
+          <div class="game-card__content">
+            <h3 class="game-card__number">Игра №3</h3>
+            <p class="game-card__name">Переверни текст</p>
+          </div>
+        </div>
+        <div class="game-card game-card-big">
+          <div class="game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-6.jpg"
+              alt="Генератор случайных цветов"
+              class="game-card__image"
+            />
+          </div>
+          <div class="game-card__content">
+            <h3 class="game-card__number">Игра №6</h3>
+            <p class="game-card__name">Генератор случайных цветов</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- БЛОК «Мини-игры» (интерактивные карточки) -->
+    <div class="mini-games-section center">
+      <h2 class="mini-games-section__title">Мини-игры</h2>
+      <div class="mini-games-section__grid">
+        <!-- игра 1 -->
+        <div class="mini-game-card">
+          <!-- Левая часть: текст + кнопки -->
+          <div class="mini-game-card__content">
+            <h3 class="mini-game-card__title">Угадай число</h3>
+            <p class="mini-game-card__description">
+              Попробуй угадать случайное  число от 1 до 100.
+            </p>
+            <div class="mini-game-card__buttons">
+              <button
+                class="mini-game-card__button mini-game-card__button-play"
+              >
+                Играть!
+              </button>
+            </div>
+          </div>
+          <!-- Правая часть: картинка -->
+          <div class="mini-game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-1.jpg"
+              alt="Угадай число"
+              class="mini-game-card__image"
+            />
+          </div>
+        </div>
+        <!-- игра 2 -->
+        <div class="mini-game-card">
+          <!-- Картинка -->
+          <div class="mini-game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-2.jpg"
+              alt="Простая арифметика"
+              class="mini-game-card__image"
+            />
+          </div>
+          <!-- Текст и кнопки -->
+          <div class="mini-game-card__content">
+            <h3 class="mini-game-card__title">Простая арифметика</h3>
+            <p class="mini-game-card__description">
+              Попробуй решить простые арифметические задачи.
+            </p>
+            <button class="mini-game-card__button mini-game-card__button-play">
+              Играть!
+            </button>
+          </div>
+        </div>
+        <!-- игра 3 -->
+        <div class="mini-game-card">
+          <!-- Текст и кнопка -->
+
+          <!-- Картинка-->
+
+          <div class="mini-game-card__content">
+            <h3 class="mini-game-card__title">Переверни текст</h3>
+            <p class="mini-game-card__description">
+              Попробуй ввести текст, который  будет перевернут.
+            </p>
+            <button class="mini-game-card__button mini-game-card__button-play">
+              Играть!
+            </button>
+          </div>
+          <div class="mini-game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-3.jpg"
+              alt="Переверни текст"
+              class="mini-game-card__image"
+            />
+          </div>
+        </div>
+        <!-- игра 4 -->
+        <div class="mini-game-card">
+          <div class="mini-game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-4.jpg"
+              alt="Камень, ножницы, бумага"
+              class="mini-game-card__image"
+            />
+          </div>
+          <div class="mini-game-card__content">
+            <h3 class="mini-game-card__title">Камень, ножницы, бумага</h3>
+            <p class="mini-game-card__description">
+              Сыграй в популярную игру против компьютера.
+            </p>
+            <button class="mini-game-card__button mini-game-card__button-play">
+              Играть!
+            </button>
+          </div>
+        </div>
+        <!-- игра 5 -->
+        <div class="mini-game-card">
+          <div class="mini-game-card__content">
+            <h3 class="mini-game-card__title">Простая викторина</h3>
+            <p class="mini-game-card__description">
+              Отвечай на вопросы викторины с вариантами ответов.
+            </p>
+            <button class="mini-game-card__button mini-game-card__button-play">
+              Играть!
+            </button>
+          </div>
+          <div class="mini-game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-5.jpg"
+              alt="Простая викторина"
+              class="mini-game-card__image"
+            />
+          </div>
+        </div>
+        <!-- игра 6 -->
+        <div class="mini-game-card">
+          <div class="mini-game-card__image-wrapper">
+            <img
+              src="/images/path-to-your-image-6.jpg"
+              alt="Генератор случайных цветов"
+              class="mini-game-card__image"
+            />
+          </div>
+          <div class="mini-game-card__content">
+            <h3 class="mini-game-card__title">Генератор случайных цветов</h3>
+            <p class="mini-game-card__description">
+              Игра, в которой при клике на кнопку фон страницы меняется на
+              случайный.
+            </p>
+            <button class="mini-game-card__button mini-game-card__button-play">
+              Играть!
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p class="footer__copyright">Все права защищены.</p>
+    </footer>
+
+    <!-- небольшой скрипт для демонстрации работы кнопок (без логики, просто алерт) -->
+    <script>
+      (function () {
+        const allPlayButtons = document.querySelectorAll(
+          ".mini-game-card__button",
+        );
+        allPlayButtons.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const card = btn.closest(".mini-game-card");
+            const gameTitle =
+              card?.querySelector(".mini-game-card__title")?.innerText ||
+              "игра";
+            alert(`✨ Запуск "${gameTitle}"\nЗдесь будет логика игры. ✨`);
+          });
+        });
+
+        const startBtn = document.querySelector(".header__button_start");
+        if (startBtn) {
+          startBtn.addEventListener("click", () => {
+            const gamesSection = document.querySelector(".mini-games-section");
+            if (gamesSection) {
+              gamesSection.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            } else {
+              alert("Добро пожаловать! Список игр ниже ↓");
+            }
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

@@ -1,9 +1,248 @@
 <!doctype html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Сайт мини-игр</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link href="fonts/your-font.css" rel="stylesheet" />
-  </head>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <title>Сайт мини-игр</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="fonts/your-font.css" rel="stylesheet">
+
+</head>
+
+<body>
+  <!-- БЛОК «Добро пожаловать» -->
+  <header class="header center">
+    <div class="header__wrapper">
+      <h1 class="header__title">Добро пожаловать на&nbsp;мой сайт мини-игр</h1> 
+      <p class="header__subtitle">Тебе предстоит пройти несколько увлекательных игр. <br>Если готов, нажимай
+        <b>«Поехали!»</b> и <b>приступай.</b></p>
+      <button class="header__button header__button-start">Поехали!</button>
+    </div>
+  </header>
+
+  <!-- БЛОК «Об играх» -->
+  <div class="games-section center">
+    <h2 class="games-section__title">Об играх</h2>
+    <p class="games-section__description">В моей коллекции представлено 6 игр на разные темы. Игры&nbsp;несложные — в
+      них может поиграть каждый. <br>Все игры доступны для пользования.</p>
+    <div class="games-section__grid">
+      <a href="#game-guess-number" class="game-card">
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-1.jpg" alt="Угадай число"
+            class="game-card__image"></div>
+        <div class="game-card__content">
+          <div class="game-card__number-block">
+            <h3 class="game-card__number">Игра №1</h3>
+          </div>
+          <p class="game-card__name">Угадай число</p>
+        </div>
+      </a>
+      <a href="#game-rock-paper-scissors" class="game-card game-card-big">
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-4.jpg" alt="Камень, ножницы, бумага"
+            class="game-card__image"></div>
+        <div class="game-card__content">
+          <div class="game-card__number-block">
+            <h3 class="game-card__number">Игра №4</h3>
+          </div>
+          <p class="game-card__name">Камень, ножницы, бумага</p>
+        </div>
+      </a>
+      <a href="#game-simple-math" class="game-card game-card-big">
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-2.jpg" alt="Простая арифметика"
+            class="game-card__image"></div>
+        <div class="game-card__content">
+          <div class="game-card__number-block">
+            <h3 class="game-card__number">Игра №2</h3>
+          </div>
+          <p class="game-card__name">Простая арифметика</p>
+        </div>
+      </a>
+      <a href="#game-quiz" class="game-card">
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-5.jpg" alt="Простая викторина"
+            class="game-card__image"></div>
+        <div class="game-card__content">
+          <div class="game-card__number-block">
+            <h3 class="game-card__number">Игра №5</h3>
+          </div>
+          <p class="game-card__name">Простая викторина</p>
+        </div>
+      </a>
+      <a href="#game-reverse-text" class="game-card">
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-3.jpg" alt="Переверни текст"
+            class="game-card__image"></div>
+        <div class="game-card__content">
+          <div class="game-card__number-block">
+            <h3 class="game-card__number">Игра №3</h3>
+          </div>
+          <p class="game-card__name">Переверни текст</p>
+        </div>
+      </a>
+      <a href="#game-random-color" class="game-card game-card-big">
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-6.jpg"
+            alt="Генератор случайных цветов" class="game-card__image"></div>
+        <div class="game-card__content">
+          <div class="game-card__number-block">
+            <h3 class="game-card__number">Игра №6</h3>
+          </div>
+          <p class="game-card__name">Генератор случайных цветов</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- БЛОК «Мини-игры» (интерактивные карточки) с добавленными ID -->
+  <div class="mini-games-section center">
+    <h2 class="mini-games-section__title">Мини-игры</h2>
+    <div class="mini-games-section__grid">
+      <!-- игра 1 - Угадай число -->
+      <div class="mini-game-card" id="game-guess-number">
+        <div class="mini-game-card__content">
+          <h3 class="mini-game-card__title">Угадай число</h3>
+          <p class="mini-game-card__description">Попробуй угадать случайное число от 1 до 100.</p>
+          <div class="mini-game-card__buttons"><button
+              class="mini-game-card__button mini-game-card__button-play">Играть!</button></div>
+        </div>
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-1.jpg" alt="Угадай число"
+            class="mini-game-card__image"></div>
+      </div>
+      <!-- игра 2 - Простая арифметика -->
+      <div class="mini-game-card mini-game-card-mob" id="game-simple-math">
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-2.jpg" alt="Простая арифметика"
+            class="mini-game-card__image"></div>
+        <div class="mini-game-card__content">
+          <h3 class="mini-game-card__title">Простая арифметика</h3>
+          <p class="mini-game-card__description">Попробуй решить простые арифметические задачи.</p>
+          <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
+        </div>
+      </div>
+      <!-- игра 3 - Переверни текст -->
+      <div class="mini-game-card" id="game-reverse-text">
+        <div class="mini-game-card__content">
+          <h3 class="mini-game-card__title">Переверни текст</h3>
+          <p class="mini-game-card__description">Попробуй ввести текст, который будет перевернут.</p>
+          <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
+        </div>
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-3.jpg" alt="Переверни текст"
+            class="mini-game-card__image"></div>
+      </div>
+      <!-- игра 4 - Камень, ножницы, бумага -->
+      <div class="mini-game-card mini-game-card-mob" id="game-rock-paper-scissors">
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-4.jpg"
+            alt="Камень, ножницы, бумага" class="mini-game-card__image"></div>
+        <div class="mini-game-card__content">
+          <h3 class="mini-game-card__title">Камень, ножницы, бумага</h3>
+          <p class="mini-game-card__description">Сыграй в популярную игру против компьютера.</p>
+          <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
+        </div>
+      </div>
+      <!-- игра 5 - Простая викторина -->
+      <div class="mini-game-card" id="game-quiz">
+        <div class="mini-game-card__content">
+          <h3 class="mini-game-card__title">Простая викторина</h3>
+          <p class="mini-game-card__description">Отвечай на вопросы викторины с вариантами ответов.</p>
+          <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
+        </div>
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-5.jpg" alt="Простая викторина"
+            class="mini-game-card__image"></div>
+      </div>
+      <!-- игра 6 - Генератор случайных цветов -->
+      <div class="mini-game-card mini-game-card-mob" id="game-random-color">
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-6.jpg"
+            alt="Генератор случайных цветов" class="mini-game-card__image"></div>
+        <div class="mini-game-card__content">
+          <h3 class="mini-game-card__title">Генератор случайных цветов</h3>
+          <p class="mini-game-card__description">Игра, в которой при клике на кнопку фон страницы меняется на случайный.
+          </p>
+          <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p class="footer__copyright">Все права защищены.</p>
+  </footer>
+
+  <script>
+    (function () {
+      // Функция генерации короткого звука (щелчок) без внешних файлов
+      function playBeep() {
+        try {
+          const AudioContext = window.AudioContext || window.webkitAudioContext;
+          const audioCtx = new AudioContext();
+          const oscillator = audioCtx.createOscillator();
+          const gainNode = audioCtx.createGain();
+          oscillator.connect(gainNode);
+          gainNode.connect(audioCtx.destination);
+          oscillator.frequency.value = 880;
+          gainNode.gain.value = 0.2;
+          oscillator.start();
+          gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.3);
+          oscillator.stop(audioCtx.currentTime + 0.3);
+          if (audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+        } catch (e) {
+          console.warn('Звук не поддерживается', e);
+        }
+      }
+
+      function highlightElement(element) {
+        if (!element) return;
+        element.classList.add('mini-game-card-highlight');
+        setTimeout(() => {
+          element.classList.remove('mini-game-card-highlight');
+        }, 1000);
+      }
+
+      const gameCardLinks = document.querySelectorAll('.games-section__grid a');
+      gameCardLinks.forEach((link) => {
+        link.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute('href').substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            playBeep();
+            targetSection.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start',
+            });
+            setTimeout(() => {
+              highlightElement(targetSection);
+            }, 400);
+          } else {
+            alert(`Раздел с игрой "${link.querySelector('.game-card__name')?.textContent || 'игра'}" пока недоступен.`);
+          }
+        });
+      });
+
+      const startBtn = document.querySelector('.header__button-start');
+      if (startBtn) {
+        startBtn.addEventListener('click', () => {
+          const gamesSection = document.querySelector('.mini-games-section');
+          if (gamesSection) {
+            gamesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          } else {
+            alert('Добро пожаловать! Список игр ниже ↓');
+          }
+        });
+      }
+
+      const allPlayButtons = document.querySelectorAll('.mini-game-card__button-play');
+      allPlayButtons.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const card = btn.closest('.mini-game-card');
+          const gameTitle = card?.querySelector('.mini-game-card__title')?.innerText || 'игра';
+          alert(`✨ Запуск "${gameTitle}"\nЗдесь будет логика игры. ✨`);
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
