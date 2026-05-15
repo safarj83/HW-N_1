@@ -32,7 +32,7 @@ body {
 .header {
   height: 710px;
   background-color: #E1FF8F;
-  background-image: url(/images/main\ start.svg);
+  background-image: url(../images/main\ start.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -61,7 +61,8 @@ body {
 
   &__button {
     padding: 16px 65px;
-    border: none;
+    border: 1px;
+    color: #000;
     border-radius: 60px;
     font-size: 24px;
     font-weight: 600;
@@ -74,10 +75,12 @@ body {
     color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-
+/* Инверсия цветов при наведении */
   &__button-start:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+ background-color: #ffffff;
+  color: #000;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
   }
 }
 
@@ -85,7 +88,7 @@ body {
 .games-section {
   background-color: #202027;
   padding-bottom: 94px;
-  background-image: url(/images/mini\ -images.svg);
+  background-image: url(../images/mini\ -images.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top 77px;
@@ -116,7 +119,75 @@ body {
   }
 
 }
+/* ===== АНИМИРОВАННАЯ ПОЛОСА (ТИКЕР) ===== */
+.ticker {
+ display: flex;
+ align-items: center;
+  height: 90px;
+  background-color: #bcec30;   /* фон как у секций */
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 16px 0;
+  border-top: 1px solid rgba(225, 255, 143, 0.3);
+  border-bottom: 1px solid rgba(225, 255, 143, 0.3);
+}
+.ticker__star {
+  font-size: 28px;      /* чуть крупнее для акцента */
+  vertical-align: middle;
+}
+.ticker__wrapper {
+  display: flex;
+  gap: 40px;
+  width: fit-content;
+  animation: scrollTicker 20s linear infinite;
+}
 
+.ticker__content {
+  display: flex;
+  gap: 40px;
+}
+
+.ticker__item {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #202027;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Анимация движения влево */
+@keyframes scrollTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Остановка анимации при наведении (по желанию) */
+.ticker:hover .ticker__wrapper {
+  animation-play-state: paused;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 767px) {
+  .ticker {
+    padding: 10px 0;
+  }
+  .ticker__item {
+    font-size: 30px;
+  }
+  .ticker__wrapper {
+    gap: 20px;
+    animation-duration: 15s; /* чуть быстрее для короткой строки */
+  }
+  .ticker__content {
+    gap: 20px;
+  }
+}
 /*===== КАРТОЧКИ =====*/
 .game-card {
   width: 378px;
@@ -208,7 +279,7 @@ body {
 .mini-games__section {
   background-color: #202027;
   padding-bottom: 94px;
-  background-image: url(/images/mini\ -images.svg);
+  background-image: url(../images/mini\ -images.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top 77px;

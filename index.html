@@ -20,11 +20,44 @@
     <div class="header__wrapper">
       <h1 class="header__title">Добро пожаловать на&nbsp;мой сайт мини-игр</h1>
       <p class="header__subtitle">Тебе предстоит пройти несколько увлекательных игр. <br>Если готов, нажимай
-        <b>«Поехали!»</b> и <b>приступай.</b></p>
+        <b>«Поехали!»</b> и <b>приступай.</b>
+      </p>
       <button class="header__button header__button-start">Поехали!</button>
     </div>
   </header>
-
+  <!-- Анимированная полоса (тикер) с названиями игр -->
+  <div class="ticker">
+    <div class="ticker__wrapper">
+      <div class="ticker__content">
+        <span class="ticker__item">Викторина</span>
+        <span class="ticker__star">✦</span>
+        <span class="ticker__item">угадай число</span>
+        <span class="ticker__star">✦</span>
+        <span class="ticker__item">Переверни текст</span>
+        <span class="ticker__star">✦</span>
+        <span class="ticker__item">Простая арифметика</span>
+        <span class="ticker__star">✦</span>
+        <span class="ticker__item">Камень, ножницы, бумага</span>
+        <span class="ticker__star">✦</span>
+        <span class="ticker__item">Генератор случайных цветов</span>
+      </div>
+      <!-- Дублируем контент для бесконечности -->
+        <span class="ticker__star">✦</span>
+      <div class="ticker__content" aria-hidden="true">
+        <span class="ticker__item">Викторина</span>
+        <span class="ticker__star">✦</span>
+        <span class="ticker__item">угадай число</span>
+        <span class="ticker__star">✦</span>
+        <span class="ticker__item">Переверни текст</span>
+        <span class="ticker__star">✦</span>
+        <span class="ticker__item">Простая арифметика</span>
+        <span class="ticker__star">✦</span>
+        <span class="ticker__item">Камень, ножницы, бумага</span>
+        <span class="ticker__star">✦</span>
+        <span class="ticker__item">Генератор случайных цветов</span>
+      </div>
+    </div>
+  </div>
   <!-- БЛОК «Об играх» -->
   <div class="games-section center">
     <h2 class="games-section__title">Об играх</h2>
@@ -32,7 +65,7 @@
       них может поиграть каждый. <br>Все игры доступны для пользования.</p>
     <div class="games-section__grid">
       <a href="#game-guess-number" class="game-card">
-        <div class="game-card__image-wrapper"><img src="/images/path-to-your-image-1.jpg" alt="Угадай число"
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-1.jpg" alt="Угадай число"
             class="game-card__image"></div>
         <div class="game-card__content">
           <div class="game-card__number-block">
@@ -42,7 +75,7 @@
         </div>
       </a>
       <a href="#game-rock-paper-scissors" class="game-card game-card-big">
-        <div class="game-card__image-wrapper"><img src="/images/path-to-your-image-4.jpg" alt="Камень, ножницы, бумага"
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-4.jpg" alt="Камень, ножницы, бумага"
             class="game-card__image"></div>
         <div class="game-card__content">
           <div class="game-card__number-block">
@@ -52,7 +85,7 @@
         </div>
       </a>
       <a href="#game-simple-math" class="game-card game-card-big">
-        <div class="game-card__image-wrapper"><img src="/images/path-to-your-image-2.jpg" alt="Простая арифметика"
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-2.jpg" alt="Простая арифметика"
             class="game-card__image"></div>
         <div class="game-card__content">
           <div class="game-card__number-block">
@@ -62,7 +95,7 @@
         </div>
       </a>
       <a href="#game-quiz" class="game-card">
-        <div class="game-card__image-wrapper"><img src="/images/path-to-your-image-5.jpg" alt="Простая викторина"
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-5.jpg" alt="Простая викторина"
             class="game-card__image"></div>
         <div class="game-card__content">
           <div class="game-card__number-block">
@@ -72,7 +105,7 @@
         </div>
       </a>
       <a href="#game-reverse-text" class="game-card">
-        <div class="game-card__image-wrapper"><img src="/images/path-to-your-image-3.jpg" alt="Переверни текст"
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-3.jpg" alt="Переверни текст"
             class="game-card__image"></div>
         <div class="game-card__content">
           <div class="game-card__number-block">
@@ -82,7 +115,7 @@
         </div>
       </a>
       <a href="#game-random-color" class="game-card game-card-big">
-        <div class="game-card__image-wrapper"><img src="/images/path-to-your-image-6.jpg"
+        <div class="game-card__image-wrapper"><img src="./images/path-to-your-image-6.jpg"
             alt="Генератор случайных цветов" class="game-card__image"></div>
         <div class="game-card__content">
           <div class="game-card__number-block">
@@ -106,12 +139,12 @@
           <div class="mini-game-card__buttons"><button
               class="mini-game-card__button mini-game-card__button-play">Играть!</button></div>
         </div>
-        <div class="mini-game-card__image-wrapper"><img src="/images/path-to-your-image-1.jpg" alt="Угадай число"
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-1.jpg" alt="Угадай число"
             class="mini-game-card__image"></div>
       </div>
       <!-- игра 2 - Простая арифметика -->
       <div class="mini-game-card mini-game-card-mob" id="game-simple-math">
-        <div class="mini-game-card__image-wrapper"><img src="/images/path-to-your-image-2.jpg" alt="Простая арифметика"
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-2.jpg" alt="Простая арифметика"
             class="mini-game-card__image"></div>
         <div class="mini-game-card__content">
           <h3 class="mini-game-card__title">Простая арифметика</h3>
@@ -126,12 +159,12 @@
           <p class="mini-game-card__description">Попробуй ввести текст, который будет перевернут.</p>
           <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
         </div>
-        <div class="mini-game-card__image-wrapper"><img src="/images/path-to-your-image-3.jpg" alt="Переверни текст"
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-3.jpg" alt="Переверни текст"
             class="mini-game-card__image"></div>
       </div>
       <!-- игра 4 - Камень, ножницы, бумага -->
       <div class="mini-game-card mini-game-card-mob" id="game-rock-paper-scissors">
-        <div class="mini-game-card__image-wrapper"><img src="/images/path-to-your-image-4.jpg"
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-4.jpg"
             alt="Камень, ножницы, бумага" class="mini-game-card__image"></div>
         <div class="mini-game-card__content">
           <h3 class="mini-game-card__title">Камень, ножницы, бумага</h3>
@@ -146,12 +179,12 @@
           <p class="mini-game-card__description">Отвечай на вопросы викторины с вариантами ответов.</p>
           <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
         </div>
-        <div class="mini-game-card__image-wrapper"><img src="/images/path-to-your-image-5.jpg" alt="Простая викторина"
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-5.jpg" alt="Простая викторина"
             class="mini-game-card__image"></div>
       </div>
       <!-- игра 6 - Генератор случайных цветов -->
       <div class="mini-game-card mini-game-card-mob" id="game-random-color">
-        <div class="mini-game-card__image-wrapper"><img src="/images/path-to-your-image-6.jpg"
+        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-6.jpg"
             alt="Генератор случайных цветов" class="mini-game-card__image"></div>
         <div class="mini-game-card__content">
           <h3 class="mini-game-card__title">Генератор случайных цветов</h3>
@@ -223,7 +256,7 @@
       const startBtn = document.querySelector('.header__button-start');
       if (startBtn) {
         startBtn.addEventListener('click', () => {
-          const gamesSection = document.querySelector('.mini-games-section');
+          const gamesSection = document.querySelector('.games-section');
           if (gamesSection) {
             gamesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
           } else {
