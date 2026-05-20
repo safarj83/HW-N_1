@@ -434,7 +434,7 @@ body {
 .header {
   height: 710px;
   background-color: #E1FF8F;
-  background-image: url(/images/main\ start.svg);
+  background-image: url(../images/main\ start.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top;
@@ -481,7 +481,7 @@ body {
 .games-section {
   background-color: #202027;
   padding-bottom: 94px;
-  background-image: url(/images/mini\ -images.svg);
+  background-image: url(../images/mini\ -images.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top 77px;
@@ -596,7 +596,7 @@ body {
 .mini-games__section {
   background-color: #202027;
   padding-bottom: 94px;
-  background-image: url(/images/mini\ -images.svg);
+  background-image: url(../images/mini\ -images.svg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top 77px;
@@ -701,6 +701,183 @@ body {
   /* Заполняем блок, обрезая лишнее */
 }
 
+/* ===== 3D ПЕРЕВОРОТ ДЛЯ КАРТОЧКИ "УГАДАЙ ЧИСЛО" ===== */
+.mini-game-card#game-guess-number {
+  perspective: 1500px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mini-game-card#game-guess-number .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 30px;
+}
+
+.mini-game-card#game-guess-number.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.mini-game-card#game-guess-number .card-front,
+.mini-game-card#game-guess-number .card-back {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-guess-number .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  background-image: url(../images/path-to-your-image-1.jpg);
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Содержимое игры на задней стороне */
+.game-container {
+  padding: 40px 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.game-title {
+  font-weight: 700;
+  font-size: 32px;
+  color: #202027;
+  margin-bottom: 16px;
+}
+
+.game-description {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 32px;
+}
+
+.game-input-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.guess-input {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: 2px solid #ddd;
+  border-radius: 60px;
+  width: 180px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  transition: 0.2s;
+}
+
+.guess-input:focus {
+  border-color: #bcec30;
+}
+
+.game-button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 60px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.check-btn {
+  background-color: #202027;
+  color: white;
+}
+
+.check-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.new-game-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.new-game-btn:hover {
+  background-color: #45a049;
+}
+
+.back-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+.back-btn:hover {
+  background-color: #fb8c00;
+}
+
+.game-feedback {
+  margin: 20px 0;
+  min-height: 80px;
+}
+
+.feedback-message {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #202027;
+}
+
+.attempts-count {
+  font-size: 18px;
+  color: #666;
+}
+
+.game-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 767px) {
+  .mini-game-card#game-guess-number .card-front,
+  .mini-game-card#game-guess-number .card-back {
+    flex-direction: column;
+  }
+  .game-container {
+    padding: 30px 20px;
+  }
+  .game-title {
+    font-size: 28px;
+  }
+  .guess-input {
+    width: 100%;
+  }
+  .game-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .game-actions {
+    flex-direction: column;
+  }
+}
 .footer {
   height: 150px;
   background-color: #bded35;
@@ -742,7 +919,7 @@ body {
     text-align: center;
     height: 700px;
     background-color: #E1FF8F;
-    background-image: url(/images/main\ start.svg);
+    background-image: url(../images/main\ start.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
@@ -784,7 +961,7 @@ body {
   .mini-games__section {
     background-color: #202027;
     padding-bottom: 94px;
-    background-image: url(/images/mini-images.svg);
+    background-image: url(../images/mini-images.svg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top 77px;

@@ -29,6 +29,7 @@
   <div class="ticker">
     <div class="ticker__wrapper">
       <div class="ticker__content">
+         <span class="ticker__star">✦</span>
         <span class="ticker__item">Викторина</span>
         <span class="ticker__star">✦</span>
         <span class="ticker__item">угадай число</span>
@@ -131,17 +132,47 @@
   <div class="mini-games-section center">
     <h2 class="mini-games-section__title">Мини-игры</h2>
     <div class="mini-games-section__grid">
-      <!-- игра 1 - Угадай число -->
-      <div class="mini-game-card" id="game-guess-number">
-        <div class="mini-game-card__content">
-          <h3 class="mini-game-card__title">Угадай число</h3>
-          <p class="mini-game-card__description">Попробуй угадать случайное число от 1 до 100.</p>
-          <div class="mini-game-card__buttons"><button
-              class="mini-game-card__button mini-game-card__button-play">Играть!</button></div>
+    <!-- игра 1 - Угадай число (с переворотом) -->
+<div class="mini-game-card" id="game-guess-number">
+  <div class="card-inner">
+    <!-- Лицевая сторона -->
+    <div class="card-front">
+      <div class="mini-game-card__content">
+        <h3 class="mini-game-card__title">Угадай число</h3>
+        <p class="mini-game-card__description">Попробуй угадать случайное число от 1 до 100.</p>
+        <div class="mini-game-card__buttons">
+          <button class="mini-game-card__button mini-game-card__button-play play-guess-number">Играть!</button>
         </div>
-        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-1.jpg" alt="Угадай число"
-            class="mini-game-card__image"></div>
       </div>
+      <div class="mini-game-card__image-wrapper">
+        <img src="./images/path-to-your-image-1.jpg" alt="Угадай число" class="mini-game-card__image">
+      </div>
+    </div>
+
+    <!-- Задняя сторона с игрой -->
+    <div class="card-back">
+      <div class="game-container">
+        <h3 class="game-title">Угадай число</h3>
+        <p class="game-description">Я загадал число от 1 до 100. Попробуй угадать!</p>
+        
+        <div class="game-input-group">
+          <input type="number" id="guessInput" class="guess-input" placeholder="Введите число" min="1" max="100">
+          <button id="checkGuessBtn" class="game-button check-btn">Проверить</button>
+        </div>
+        
+        <div class="game-feedback">
+          <p id="feedbackMessage" class="feedback-message"></p>
+          <p id="attemptsCount" class="attempts-count">Попыток: 0</p>
+        </div>
+        
+        <div class="game-actions">
+          <button id="newGameBtn" class="game-button new-game-btn">Новая игра</button>
+          <button id="backToFrontBtn" class="game-button back-btn">Назад</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       <!-- игра 2 - Простая арифметика -->
       <div class="mini-game-card mini-game-card-mob" id="game-simple-math">
         <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-2.jpg" alt="Простая арифметика"
@@ -200,82 +231,9 @@
     <p class="footer__copyright">Все права защищены.</p>
   </footer>
 
-  <script>
-    (function () {
-      // Функция генерации короткого звука (щелчок) без внешних файлов
-      function playBeep() {
-        try {
-          const AudioContext = window.AudioContext || window.webkitAudioContext;
-          const audioCtx = new AudioContext();
-          const oscillator = audioCtx.createOscillator();
-          const gainNode = audioCtx.createGain();
-          oscillator.connect(gainNode);
-          gainNode.connect(audioCtx.destination);
-          oscillator.frequency.value = 880;
-          gainNode.gain.value = 0.2;
-          oscillator.start();
-          gainNode.gain.exponentialRampToValueAtTime(0.00001, audioCtx.currentTime + 0.3);
-          oscillator.stop(audioCtx.currentTime + 0.3);
-          if (audioCtx.state === 'suspended') {
-            audioCtx.resume();
-          }
-        } catch (e) {
-          console.warn('Звук не поддерживается', e);
-        }
-      }
-
-      function highlightElement(element) {
-        if (!element) return;
-        element.classList.add('mini-game-card-highlight');
-        setTimeout(() => {
-          element.classList.remove('mini-game-card-highlight');
-        }, 1000);
-      }
-
-      const gameCardLinks = document.querySelectorAll('.games-section__grid a');
-      gameCardLinks.forEach((link) => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const targetId = link.getAttribute('href').substring(1);
-          const targetSection = document.getElementById(targetId);
-          if (targetSection) {
-            playBeep();
-            targetSection.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-            });
-            setTimeout(() => {
-              highlightElement(targetSection);
-            }, 400);
-          } else {
-            alert(`Раздел с игрой "${link.querySelector('.game-card__name')?.textContent || 'игра'}" пока недоступен.`);
-          }
-        });
-      });
-
-      const startBtn = document.querySelector('.header__button-start');
-      if (startBtn) {
-        startBtn.addEventListener('click', () => {
-          const gamesSection = document.querySelector('.games-section');
-          if (gamesSection) {
-            gamesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          } else {
-            alert('Добро пожаловать! Список игр ниже ↓');
-          }
-        });
-      }
-
-      const allPlayButtons = document.querySelectorAll('.mini-game-card__button-play');
-      allPlayButtons.forEach((btn) => {
-        btn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const card = btn.closest('.mini-game-card');
-          const gameTitle = card?.querySelector('.mini-game-card__title')?.innerText || 'игра';
-          alert(`✨ Запуск "${gameTitle}"\nЗдесь будет логика игры. ✨`);
-        });
-      });
-    })();
-  </script>
+  <script src="./js/jscript.js"></script>
+    
+  
 </body>
 
 </html>
