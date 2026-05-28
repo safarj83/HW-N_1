@@ -173,16 +173,47 @@
     </div>
   </div>
 </div>
-      <!-- игра 2 - Простая арифметика -->
-      <div class="mini-game-card mini-game-card-mob" id="game-simple-math">
-        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-2.jpg" alt="Простая арифметика"
-            class="mini-game-card__image"></div>
-        <div class="mini-game-card__content">
-          <h3 class="mini-game-card__title">Простая арифметика</h3>
-          <p class="mini-game-card__description">Попробуй решить простые арифметические задачи.</p>
-          <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
+      <!-- игра 2 - Простая арифметика (с переворотом) -->
+<div class="mini-game-card mini-game-card-mob" id="game-simple-math">
+  <div class="card-inner">
+    <!-- Лицевая сторона -->
+    <div class="card-front">
+      <div class="mini-game-card__image-wrapper">
+        <img src="./images/path-to-your-image-2.jpg" alt="Простая арифметика" class="mini-game-card__image">
+      </div>
+      <div class="mini-game-card__content">
+        <h3 class="mini-game-card__title">Простая арифметика</h3>
+        <p class="mini-game-card__description">Попробуй решить простые арифметические задачи.</p>
+        <button class="mini-game-card__button mini-game-card__button-play play-simple-math">Играть!</button>
+      </div>
+    </div>
+
+    <!-- Задняя сторона с игрой -->
+    <div class="card-back">
+      <div class="game-container math-game-container">
+        <h3 class="game-title">Простая арифметика</h3>
+        <div class="math-question">
+          <span id="mathQuestion" class="question-text">5 + 3</span>
+        </div>
+        
+        <div class="game-input-group">
+          <input type="number" id="mathAnswer" class="guess-input" placeholder="Ваш ответ">
+          <button id="checkMathBtn" class="game-button check-btn">Проверить</button>
+        </div>
+        
+        <div class="game-feedback">
+          <p id="mathFeedback" class="feedback-message"></p>
+          <p id="mathScore" class="attempts-count">Счёт: 0</p>
+        </div>
+        
+        <div class="game-actions">
+          <button id="newMathBtn" class="game-button new-game-btn">Новая игра</button>
+          <button id="backFromMathBtn" class="game-button back-btn">Назад</button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
       <!-- игра 3 - Переверни текст -->
       <div class="mini-game-card" id="game-reverse-text">
         <div class="mini-game-card__content">
