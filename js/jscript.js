@@ -23,17 +23,13 @@
 
   // ----- Логика переворота и игры "Угадай число" -----
   (function() {
-    // Находим карточку игры
     const gameCard = document.getElementById('game-guess-number');
     if (!gameCard) return;
     
     let secretNumber = null;
     let attempts = 0;
-    
-    // Элементы игры
     let guessInput, checkBtn, feedbackMsg, attemptsSpan, newGameBtn, backBtn;
     
-    // Функция инициализации игры (генерирует новое число, сбрасывает попытки)
     function initGame(resetAttempts = true) {
       secretNumber = Math.floor(Math.random() * 100) + 1;
       if (resetAttempts) {
@@ -49,10 +45,8 @@
         guessInput.disabled = false;
       }
       if (checkBtn) checkBtn.disabled = false;
-      console.log('Новая игра! Загадано:', secretNumber); // для отладки (можно убрать)
     }
     
-    // Проверка введённого числа
     function checkGuess() {
       if (!guessInput || !feedbackMsg) return;
       const rawValue = guessInput.value.trim();
@@ -85,7 +79,6 @@
       }
     }
     
-    // Переворот карточки (показать игровую сторону)
     function flipToGame() {
       gameCard.classList.add('flipped');
       setTimeout(() => {
@@ -93,12 +86,10 @@
       }, 100);
     }
     
-    // Вернуться на лицевую сторону
     function flipToFront() {
       gameCard.classList.remove('flipped');
     }
     
-    // Подключаем обработчики после того, как DOM загружен
     function bindGameEvents() {
       guessInput = document.getElementById('guessInput');
       checkBtn = document.getElementById('checkGuessBtn');
@@ -115,7 +106,6 @@
           if (e.key === 'Enter') checkGuess();
         });
       }
-      
       initGame(true);
     }
     
@@ -141,11 +131,8 @@
     
     let currentQuestion = { text: '', answer: 0 };
     let score = 0;
-    
-    // Элементы игры
     let questionSpan, answerInput, checkBtn, feedbackP, scoreSpan, newBtn, backBtn;
     
-    // Генерация случайного примера
     function generateQuestion() {
       const operators = ['+', '-', '*', '/'];
       const op = operators[Math.floor(Math.random() * operators.length)];
@@ -181,7 +168,6 @@
       if (questionSpan) questionSpan.textContent = currentQuestion.text;
     }
     
-    // Проверка ответа
     function checkMathAnswer() {
       if (!answerInput || !feedbackP) return;
       const userAnswer = Number(answerInput.value.trim());
@@ -204,7 +190,6 @@
       if (scoreSpan) scoreSpan.textContent = `Счёт: ${score}`;
     }
     
-    // Новая игра (сброс счёта и новый вопрос)
     function resetMathGame() {
       score = 0;
       if (scoreSpan) scoreSpan.textContent = `Счёт: ${score}`;
@@ -213,7 +198,6 @@
       if (feedbackP) feedbackP.textContent = '';
     }
     
-    // Переворот к игре
     function flipToMathGame() {
       mathCard.classList.add('flipped');
       setTimeout(() => {
@@ -225,7 +209,6 @@
       mathCard.classList.remove('flipped');
     }
     
-    // Привязка элементов и обработчиков
     function bindMathEvents() {
       questionSpan = document.getElementById('mathQuestion');
       answerInput = document.getElementById('mathAnswer');
@@ -243,7 +226,6 @@
           if (e.key === 'Enter') checkMathAnswer();
         });
       }
-      
       generateQuestion();
     }
     
@@ -259,6 +241,210 @@
       document.addEventListener('DOMContentLoaded', bindMathEvents);
     } else {
       bindMathEvents();
+    }
+  })();
+
+  // ----- Логика переворота и игры "Переверни текст" -----
+  (function() {
+    const reverseCard = document.getElementById('game-reverse-text');
+    if (!reverseCard) return;
+    
+    let reverseInput, reverseBtn, reverseResult, clearBtn, backBtn;
+    
+    function flipToReverse() {
+      reverseCard.classList.add('flipped');
+    }
+    
+    function flipFromReverse() {
+      reverseCard.classList.remove('flipped');
+    }
+    
+    function reverseText() {
+      const text = reverseInput.value;
+      if (text.trim() === '') {
+        reverseResult.textContent = '⚠️ Введите текст!';
+        return;
+      }
+      const reversed = text.split('').reverse().join('');
+      reverseResult.textContent = `Результат: ${reversed}`;
+    }
+    
+    function clearReverse() {
+      reverseInput.value = '';
+      reverseResult.textContent = '';
+    }
+    
+    function bindReverseEvents() {
+      reverseInput = document.getElementById('reverseInput');
+      reverseBtn = document.getElementById('reverseBtn');
+      reverseResult = document.getElementById('reverseResult');
+      clearBtn = document.getElementById('clearReverseBtn');
+      backBtn = document.getElementById('backFromReverseBtn');
+      
+      if (reverseBtn) reverseBtn.addEventListener('click', reverseText);
+      if (clearBtn) clearBtn.addEventListener('click', clearReverse);
+      if (backBtn) backBtn.addEventListener('click', flipFromReverse);
+      if (reverseInput) {
+        reverseInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') reverseText();
+        });
+      }
+    }
+    
+    const playReverseBtn = reverseCard.querySelector('.play-reverse-text');
+    if (playReverseBtn) {
+      playReverseBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        flipToReverse();
+      });
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bindReverseEvents);
+    } else {
+      bindReverseEvents();
+    }
+  })();
+
+  // ----- Логика переворота и игры "Викторина" -----
+  (function() {
+    const quizCard = document.getElementById('game-quiz');
+    if (!quizCard) return;
+    
+    // Массив вопросов по вселенной Лавкрафта (10 вопросов)
+    const quiz = [
+      {
+        question: "Как называется знаменитое божество-спрут, созданное Лавкрафтом?",
+        options: ["1. Азатот", "2. Ктулху", "3. Йог-Сотот"],
+        correctAnswer: 2
+      },
+      {
+        question: "В каком городе происходит действие большинства рассказов Лавкрафта?",
+        options: ["1. Аркхем", "2. Данвич", "3. Иннсмут"],
+        correctAnswer: 1
+      },
+      {
+        question: "Кто является автором «Некрономикона» в мифах Лавкрафта?",
+        options: ["1. Абдул Альхазред", "2. Герберт Уэст", "3. Рэндольф Картер"],
+        correctAnswer: 1
+      },
+      {
+        question: "Как называется существо из рассказа «Тень над Иннсмутом»?",
+        options: ["1. Глубоководные", "2. Ми-го", "3. Шогготы"],
+        correctAnswer: 1
+      },
+      {
+        question: "Какой бог в мифах Лавкрафта известен как «Слепой идиотский бог»?",
+        options: ["1. Ньярлатхотеп", "2. Азатот", "3. Ктулху"],
+        correctAnswer: 2
+      },
+      {
+        question: "Как называется вымышленный оккультный университет в Аркхеме?",
+        options: ["1. Университет Данвича", "2. Университет Мискатоника", "3. Университет Кингспорта"],
+        correctAnswer: 2
+      },
+      {
+        question: "Какой из этих рассказов Лавкрафта считается самым известным?",
+        options: ["1. Зов Ктулху", "2. Хребты безумия", "3. Случай Чарльза Декстера Варда"],
+        correctAnswer: 1
+      },
+      {
+        question: "Кто такой Рэндольф Картер?",
+        options: ["1. Ученый-оккультист", "2. Главный герой нескольких рассказов", "3. Древнее божество"],
+        correctAnswer: 2
+      },
+      {
+        question: "Как называются крылатые существа-грибы с Юггот?",
+        options: ["1. Гончие Тиндала", "2. Ми-го", "3. Старцы"],
+        correctAnswer: 2
+      },
+      {
+        question: "Какой город в мифах Лавкрафта знаменит своими ведьмами?",
+        options: ["1. Аркхем", "2. Данвич", "3. Кингспорт"],
+        correctAnswer: 2
+      }
+    ];
+    
+    let startBtn, quizResultSpan, backBtn;
+    
+    function flipToQuiz() {
+      quizCard.classList.add('flipped');
+    }
+    
+    function flipFromQuiz() {
+      quizCard.classList.remove('flipped');
+      if (quizResultSpan) quizResultSpan.textContent = '';
+    }
+    
+    function runQuiz() {
+      let correctCount = 0;
+      let userAnswers = [];
+      
+      for (let i = 0; i < quiz.length; i++) {
+        const q = quiz[i];
+        let userAnswer = prompt(`${i + 1}. ${q.question}\n${q.options.join('\n')}\n\nВведите номер ответа (1, 2 или 3):`);
+        
+        if (userAnswer === null) {
+          alert('Викторина прервана. Хотите начать заново?');
+          return;
+        }
+        
+        const answerNum = parseInt(userAnswer);
+        const isCorrect = (answerNum === q.correctAnswer);
+        
+        if (isCorrect) {
+          correctCount++;
+          userAnswers.push(`${i + 1}. ${q.question} - ✅ Правильно`);
+        } else {
+          let correctText = q.options[q.correctAnswer - 1];
+          userAnswers.push(`${i + 1}. ${q.question} - ❌ Неправильно (Правильный ответ: ${correctText})`);
+        }
+      }
+      
+      const percentage = (correctCount / quiz.length) * 100;
+      let gradeMessage = '';
+      
+      if (percentage === 100) {
+        gradeMessage = '🏆 Истинный знаток Лавкрафта! Ф’тагн! 🏆';
+      } else if (percentage >= 80) {
+        gradeMessage = '📖 Отлично! Ктулху бы гордился тобой! 📖';
+      } else if (percentage >= 60) {
+        gradeMessage = '🌊 Неплохо! Погружение в Мифы продолжается! 🌊';
+      } else if (percentage >= 40) {
+        gradeMessage = '📚 Советую почитать Лавкрафта! Путь к безумию только начинается! 📚';
+      } else {
+        gradeMessage = '💀 Твой разум ещё не готов... Изучи Мифы Ктулху и вернись! 💀';
+      }
+      
+      const resultText = `Результат: ${correctCount} / ${quiz.length} (${percentage}%)\n${gradeMessage}`;
+      alert(`✅ ${resultText}`);
+      
+      if (quizResultSpan) {
+        quizResultSpan.innerHTML = `${resultText.replace(/\n/g, '<br>')}`;
+      }
+    }
+    
+    function bindQuizEvents() {
+      startBtn = document.getElementById('startQuizBtn');
+      quizResultSpan = document.getElementById('quizResult');
+      backBtn = document.getElementById('backFromQuizBtn');
+      
+      if (startBtn) startBtn.addEventListener('click', runQuiz);
+      if (backBtn) backBtn.addEventListener('click', flipFromQuiz);
+    }
+    
+    const playQuizBtn = quizCard.querySelector('.play-quiz');
+    if (playQuizBtn) {
+      playQuizBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        flipToQuiz();
+      });
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', bindQuizEvents);
+    } else {
+      bindQuizEvents();
     }
   })();
 
@@ -308,7 +494,10 @@
   const allPlayButtons = document.querySelectorAll('.mini-game-card__button-play');
   allPlayButtons.forEach((btn) => {
     // Пропускаем кнопки с кастомными играми
-    if (btn.classList.contains('play-guess-number') || btn.classList.contains('play-simple-math')) {
+    if (btn.classList.contains('play-guess-number') || 
+        btn.classList.contains('play-simple-math') ||
+        btn.classList.contains('play-reverse-text') ||
+        btn.classList.contains('play-quiz')) {
       return;
     }
     btn.addEventListener('click', (e) => {

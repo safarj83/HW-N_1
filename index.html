@@ -214,16 +214,44 @@
     </div>
   </div>
 </div>
-      <!-- игра 3 - Переверни текст -->
-      <div class="mini-game-card" id="game-reverse-text">
-        <div class="mini-game-card__content">
-          <h3 class="mini-game-card__title">Переверни текст</h3>
-          <p class="mini-game-card__description">Попробуй ввести текст, который будет перевернут.</p>
-          <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
-        </div>
-        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-3.jpg" alt="Переверни текст"
-            class="mini-game-card__image"></div>
+     <!-- игра 3 - Переверни текст (с переворотом) -->
+<div class="mini-game-card" id="game-reverse-text">
+  <div class="card-inner">
+    <!-- Лицевая сторона -->
+    <div class="card-front">
+      <div class="mini-game-card__content">
+        <h3 class="mini-game-card__title">Переверни текст</h3>
+        <p class="mini-game-card__description">Попробуй ввести текст, который будет перевернут.</p>
+        <button class="mini-game-card__button mini-game-card__button-play play-reverse-text">Играть!</button>
       </div>
+      <div class="mini-game-card__image-wrapper">
+        <img src="./images/path-to-your-image-3.jpg" alt="Переверни текст" class="mini-game-card__image">
+      </div>
+    </div>
+
+    <!-- Задняя сторона с игрой -->
+    <div class="card-back">
+      <div class="game-container reverse-container">
+        <h3 class="game-title">Переверни текст</h3>
+        <p class="game-description">Введи любую фразу, и она отобразится задом наперёд.</p>
+        
+        <div class="game-input-group">
+          <input type="text" id="reverseInput" class="guess-input" placeholder="Введите текст">
+          <button id="reverseBtn" class="game-button check-btn">Перевернуть!</button>
+        </div>
+        
+        <div class="game-feedback">
+          <p id="reverseResult" class="feedback-message" style="word-break: break-all;"></p>
+        </div>
+        
+        <div class="game-actions">
+          <button id="clearReverseBtn" class="game-button new-game-btn">Очистить</button>
+          <button id="backFromReverseBtn" class="game-button back-btn">Назад</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       <!-- игра 4 - Камень, ножницы, бумага -->
       <div class="mini-game-card mini-game-card-mob" id="game-rock-paper-scissors">
         <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-4.jpg"
@@ -234,16 +262,42 @@
           <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
         </div>
       </div>
-      <!-- игра 5 - Простая викторина -->
-      <div class="mini-game-card" id="game-quiz">
-        <div class="mini-game-card__content">
-          <h3 class="mini-game-card__title">Простая викторина</h3>
-          <p class="mini-game-card__description">Отвечай на вопросы викторины с вариантами ответов.</p>
-          <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
-        </div>
-        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-5.jpg" alt="Простая викторина"
-            class="mini-game-card__image"></div>
+     <!-- игра 5 - Простая викторина (с переворотом) -->
+<div class="mini-game-card" id="game-quiz">
+  <div class="card-inner">
+    <!-- Лицевая сторона -->
+    <div class="card-front">
+      <div class="mini-game-card__content">
+        <h3 class="mini-game-card__title">Простая викторина</h3>
+        <p class="mini-game-card__description">Отвечай на вопросы викторины с вариантами ответов.</p>
+        <button class="mini-game-card__button mini-game-card__button-play play-quiz">Играть!</button>
       </div>
+      <div class="mini-game-card__image-wrapper">
+        <img src="./images/path-to-your-image-5.jpg" alt="Простая викторина" class="mini-game-card__image">
+      </div>
+    </div>
+
+    <!-- Задняя сторона с викториной -->
+    <div class="card-back">
+      <div class="game-container quiz-container">
+        <h3 class="game-title">Викторина</h3>
+        <p class="game-description">Проверь свои знания!</p>
+        
+        <div class="quiz-buttons">
+          <button id="startQuizBtn" class="game-button check-btn">Начать викторину</button>
+        </div>
+        
+        <div class="game-feedback">
+          <p id="quizResult" class="feedback-message"></p>
+        </div>
+        
+        <div class="game-actions">
+          <button id="backFromQuizBtn" class="game-button back-btn">Назад</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
       <!-- игра 6 - Генератор случайных цветов -->
       <div class="mini-game-card mini-game-card-mob" id="game-random-color">
         <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-6.jpg"
