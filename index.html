@@ -252,16 +252,46 @@
     </div>
   </div>
 </div>
-      <!-- игра 4 - Камень, ножницы, бумага -->
-      <div class="mini-game-card mini-game-card-mob" id="game-rock-paper-scissors">
-        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-4.jpg"
-            alt="Камень, ножницы, бумага" class="mini-game-card__image"></div>
-        <div class="mini-game-card__content">
-          <h3 class="mini-game-card__title">Камень, ножницы, бумага</h3>
-          <p class="mini-game-card__description">Сыграй в популярную игру против компьютера.</p>
-          <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
+      <!-- игра 4 - Камень, ножницы, бумага (с переворотом) -->
+<div class="mini-game-card mini-game-card-mob" id="game-rock-paper-scissors">
+  <div class="card-inner">
+    <!-- Лицевая сторона -->
+    <div class="card-front">
+      <div class="mini-game-card__image-wrapper">
+        <img src="./images/path-to-your-image-4.jpg" alt="Камень, ножницы, бумага" class="mini-game-card__image">
+      </div>
+      <div class="mini-game-card__content">
+        <h3 class="mini-game-card__title">Камень, ножницы, бумага</h3>
+        <p class="mini-game-card__description">Сыграй в популярную игру против компьютера.</p>
+        <button class="mini-game-card__button mini-game-card__button-play play-rps">Играть!</button>
+      </div>
+    </div>
+
+    <!-- Задняя сторона с игрой -->
+    <div class="card-back">
+      <div class="game-container rps-container">
+        <h3 class="game-title">Камень, ножницы, бумага</h3>
+        <p class="game-description">Выбери свой вариант и сыграй против компьютера!</p>
+        
+        <div class="rps-buttons">
+          <button class="rps-choice-btn" data-choice="камень">🪨 Камень</button>
+          <button class="rps-choice-btn" data-choice="ножницы">✂️ Ножницы</button>
+          <button class="rps-choice-btn" data-choice="бумага">📄 Бумага</button>
+        </div>
+        
+        <div class="game-feedback">
+          <p id="rpsResult" class="feedback-message"></p>
+          <p id="rpsScores" class="attempts-count">Счёт: Вы: 0 | Компьютер: 0</p>
+        </div>
+        
+        <div class="game-actions">
+          <button id="resetRpsBtn" class="game-button new-game-btn">Сбросить счёт</button>
+          <button id="backFromRpsBtn" class="game-button back-btn">Назад</button>
         </div>
       </div>
+    </div>
+  </div>
+</div>
      <!-- игра 5 - Простая викторина (с переворотом) -->
 <div class="mini-game-card" id="game-quiz">
   <div class="card-inner">

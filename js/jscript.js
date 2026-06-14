@@ -305,7 +305,154 @@
       bindReverseEvents();
     }
   })();
-
+// ----- Логика переворота и игры "Камень, ножницы, бумага" -----
+(function() {
+    const rpsCard = document.getElementById('game-rock-paper-scissors');
+    if (!rpsCard) return;
+    
+    // Возможные варианты
+    const choices = ["камень", "ножницы", "бумага"];
+    
+    // Эмодзи для вариантов
+    const choiceEmojis = {
+        "камень": "🪨",
+        "ножницы": "✂️",
+        "бумага": "📄"
+    };
+    
+    // Счёт игрока и компьютера
+    let playerScore = 0;
+    let computerScore = 0;
+    
+    // Элементы DOM
+    let resultSpan, scoresSpan, resetBtn, backBtn;
+    let choiceButtons;
+    
+    // Функция генерации случайного выбора компьютера
+    function getComputerChoice() {
+        const randomIndex = Math.floor(Math.random() * choices.length);
+        return choices[randomIndex];
+    }
+    
+    // Функция определения победителя
+    function determineWinner(playerChoice, computerChoice) {
+        if (playerChoice === computerChoice) {
+            return "Ничья! 🤝";
+        }
+        
+        if (
+            (playerChoice === "камень" && computerChoice === "ножницы") ||
+            (playerChoice === "ножницы" && computerChoice === "бумага") ||
+            (playerChoice === "бумага" && computerChoice === "камень")
+        ) {
+            playerScore++;
+            return "Победа! 🎉";
+        }
+        
+        computerScore++;
+        return "Поражение... 😢";
+    }
+    
+    // Обновление отображения счёта
+    function updateScoresDisplay() {
+        if (scoresSpan) {
+            scoresSpan.textContent = `Счёт: Вы: ${playerScore} | Компьютер: ${computerScore}`;
+        }
+    }
+    
+    // Основная игровая логика
+    function playGame(playerChoice) {
+        const computerChoice = getComputerChoice();
+        const result = determineWinner(playerChoice, computerChoice);
+        
+        const playerEmoji = choiceEmojis[playerChoice];
+        const computerEmoji = choiceEmojis[computerChoice];
+        
+        let resultMessage = `Вы выбрали: ${playerEmoji} ${playerChoice}\n`;
+        resultMessage += `Компьютер выбрал: ${computerEmoji} ${computerChoice}\n\n`;
+        resultMessage += `Результат: ${result}`;
+        
+        if (resultSpan) {
+            resultSpan.innerHTML = resultMessage.replace(/\n/g, '<br>');
+            
+            // Добавляем стиль в зависимости от результата
+            if (result === "Победа! 🎉") {
+                resultSpan.style.color = "#a5ffa5";
+            } else if (result === "Поражение... 😢") {
+                resultSpan.style.color = "#ffaaaa";
+            } else {
+                resultSpan.style.color = "#ffd700";
+            }
+        }
+        
+        updateScoresDisplay();
+    }
+    
+    // Сброс счёта
+    function resetScores() {
+        playerScore = 0;
+        computerScore = 0;
+        updateScoresDisplay();
+        if (resultSpan) {
+            resultSpan.innerHTML = "Счёт сброшен! Начни новую игру! 🎮";
+            resultSpan.style.color = "#ffffff";
+        }
+    }
+    
+    // Переворот к игре
+    function flipToRpsGame() {
+        rpsCard.classList.add('flipped');
+    }
+    
+    function flipFromRps() {
+        rpsCard.classList.remove('flipped');
+    }
+    
+    // Привязка элементов и обработчиков
+    function bindRpsEvents() {
+        resultSpan = document.getElementById('rpsResult');
+        scoresSpan = document.getElementById('rpsScores');
+        resetBtn = document.getElementById('resetRpsBtn');
+        backBtn = document.getElementById('backFromRpsBtn');
+        choiceButtons = document.querySelectorAll('.rps-choice-btn');
+        
+        // Добавляем обработчики для кнопок выбора
+        if (choiceButtons) {
+            choiceButtons.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const choice = btn.getAttribute('data-choice');
+                    if (choice) {
+                        playGame(choice);
+                    }
+                });
+            });
+        }
+        
+        if (resetBtn) resetBtn.addEventListener('click', resetScores);
+        if (backBtn) backBtn.addEventListener('click', flipFromRps);
+        
+        // Инициализируем отображение счёта
+        updateScoresDisplay();
+        
+        if (resultSpan) {
+            resultSpan.innerHTML = "Нажми на кнопку, чтобы сделать выбор! 🎮";
+        }
+    }
+    
+    const playRpsBtn = rpsCard.querySelector('.play-rps');
+    if (playRpsBtn) {
+        playRpsBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            flipToRpsGame();
+        });
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindRpsEvents);
+    } else {
+        bindRpsEvents();
+    }
+})();
   // ----- Логика переворота и игры "Викторина" -----
   (function() {
     const quizCard = document.getElementById('game-quiz');
@@ -491,20 +638,21 @@
   }
 
   // Общий обработчик для кнопок "Играть!" (исключая кастомные игры)
-  const allPlayButtons = document.querySelectorAll('.mini-game-card__button-play');
-  allPlayButtons.forEach((btn) => {
+const allPlayButtons = document.querySelectorAll('.mini-game-card__button-play');
+allPlayButtons.forEach((btn) => {
     // Пропускаем кнопки с кастомными играми
     if (btn.classList.contains('play-guess-number') || 
         btn.classList.contains('play-simple-math') ||
         btn.classList.contains('play-reverse-text') ||
-        btn.classList.contains('play-quiz')) {
-      return;
+        btn.classList.contains('play-quiz') ||
+        btn.classList.contains('play-rps')) {
+        return;
     }
     btn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      const card = btn.closest('.mini-game-card');
-      const gameTitle = card?.querySelector('.mini-game-card__title')?.innerText || 'игра';
-      alert(`✨ Запуск "${gameTitle}"\nЗдесь будет логика игры. ✨`);
+        e.stopPropagation();
+        const card = btn.closest('.mini-game-card');
+        const gameTitle = card?.querySelector('.mini-game-card__title')?.innerText || 'игра';
+        alert(`✨ Запуск "${gameTitle}"\nЗдесь будет логика игры. ✨`);
     });
-  });
+});
 })();
