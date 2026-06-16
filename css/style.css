@@ -1683,6 +1683,211 @@ body {
     font-size: 18px;
   }
 }
+/* ===== 3D ПЕРЕВОРОТ ДЛЯ КАРТОЧКИ "ГЕНЕРАТОР СЛУЧАЙНЫХ ЦВЕТОВ" ===== */
+.mini-game-card#game-random-color {
+  perspective: 1500px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mini-game-card#game-random-color .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 30px;
+}
+
+.mini-game-card#game-random-color.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.mini-game-card#game-random-color .card-front,
+.mini-game-card#game-random-color .card-back {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-random-color .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  background-image: url(../images/path-to-your-image-6.jpg);
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s ease;
+}
+
+/* Затемнение фона для читаемости текста (оно будет скрываться, когда цвет меняется) */
+.mini-game-card#game-random-color .card-back::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.mini-game-card#game-random-color .card-back.color-changed::before {
+  opacity: 0; /* скрываем затемнение, когда цвет активен */
+}
+
+.mini-game-card#game-random-color .card-back > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Стили для содержимого игры */
+.mini-game-card#game-random-color .game-container {
+  padding: 40px 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.mini-game-card#game-random-color .game-title {
+  font-weight: 700;
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mini-game-card#game-random-color .game-description {
+  font-size: 18px;
+  color: #f0f0f0;
+  margin-bottom: 32px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Блок отображения цвета */
+.color-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.color-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.5s ease;
+  margin-bottom: 16px;
+}
+
+.color-code {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+}
+
+/* Кнопка генерации цвета */
+.generate-color-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 16px 40px;
+  font-size: 20px;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+
+.generate-color-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(245, 87, 108, 0.6);
+}
+
+.generate-color-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.mini-game-card#game-random-color .game-button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 60px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.mini-game-card#game-random-color .back-btn {
+  background-color: #ff9800;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mini-game-card#game-random-color .back-btn:hover {
+  background-color: #fb8c00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-random-color .game-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 767px) {
+  .mini-game-card#game-random-color .card-front,
+  .mini-game-card#game-random-color .card-back {
+    flex-direction: column;
+  }
+  .mini-game-card#game-random-color .game-container {
+    padding: 30px 20px;
+  }
+  .mini-game-card#game-random-color .game-title {
+    font-size: 28px;
+  }
+  .color-preview {
+    width: 100px;
+    height: 100px;
+  }
+  .color-code {
+    font-size: 20px;
+    padding: 6px 16px;
+  }
+  .generate-color-btn {
+    padding: 14px 30px;
+    font-size: 18px;
+    width: 100%;
+  }
+  .mini-game-card#game-random-color .game-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
 .footer {
   height: 150px;
   background-color: #bded35;

@@ -328,20 +328,43 @@
     </div>
   </div>
 </div>
-      <!-- игра 6 - Генератор случайных цветов -->
-      <div class="mini-game-card mini-game-card-mob" id="game-random-color">
-        <div class="mini-game-card__image-wrapper"><img src="./images/path-to-your-image-6.jpg"
-            alt="Генератор случайных цветов" class="mini-game-card__image"></div>
-        <div class="mini-game-card__content">
-          <h3 class="mini-game-card__title">Генератор случайных цветов</h3>
-          <p class="mini-game-card__description">Игра, в которой при клике на кнопку фон страницы меняется на случайный.
-          </p>
-          <button class="mini-game-card__button mini-game-card__button-play">Играть!</button>
+     <!-- игра 6 - Генератор случайных цветов (с переворотом) -->
+<div class="mini-game-card mini-game-card-mob" id="game-random-color">
+  <div class="card-inner">
+    <!-- Лицевая сторона -->
+    <div class="card-front">
+      <div class="mini-game-card__image-wrapper">
+        <img src="./images/path-to-your-image-6.jpg" alt="Генератор случайных цветов" class="mini-game-card__image">
+      </div>
+      <div class="mini-game-card__content">
+        <h3 class="mini-game-card__title">Генератор случайных цветов</h3>
+        <p class="mini-game-card__description">Игра, в которой при клике на кнопку фон страницы меняется на случайный.</p>
+        <button class="mini-game-card__button mini-game-card__button-play play-random-color">Играть!</button>
+      </div>
+    </div>
+
+    <!-- Задняя сторона с игрой -->
+    <div class="card-back" id="colorCardBack">
+      <div class="game-container color-container">
+        <h3 class="game-title">Случайный цвет</h3>
+        <p class="game-description">Нажми на кнопку, чтобы изменить фон!</p>
+        
+        <div class="color-display">
+          <div id="colorPreview" class="color-preview" style="background-color: #ff6b6b;"></div>
+          <p id="colorCode" class="color-code">#ff6b6b</p>
+        </div>
+        
+        <button id="generateColorBtn" class="game-button check-btn generate-color-btn">🎨 Сменить цвет</button>
+        
+        <div class="game-actions">
+          <button id="backFromColorBtn" class="game-button back-btn">Назад</button>
         </div>
       </div>
     </div>
   </div>
-
+</div>
+</div>
+</div>
   <footer class="footer">
     <p class="footer__copyright">Все права защищены.</p>
   </footer>

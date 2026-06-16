@@ -594,6 +594,92 @@
       bindQuizEvents();
     }
   })();
+  // ----- Логика переворота и игры "Генератор случайных цветов" -----
+(function() {
+    const colorCard = document.getElementById('game-random-color');
+    if (!colorCard) return;
+    
+    let cardBack, colorPreview, colorCode, generateBtn, backBtn;
+    
+    // Функция генерации случайного цвета в HEX
+    function getRandomColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+    
+    // Функция обновления цвета
+    function updateColor() {
+        const newColor = getRandomColor();
+        
+        // Меняем фон задней стороны карточки
+        if (cardBack) {
+            cardBack.style.backgroundColor = newColor;
+            // Убираем фоновое изображение, чтобы цвет был виден
+            cardBack.style.backgroundImage = 'none';
+            // Добавляем класс для управления затемнением
+            cardBack.classList.add('color-changed');
+        }
+        
+        // Обновляем превью
+        if (colorPreview) {
+            colorPreview.style.backgroundColor = newColor;
+        }
+        
+        // Обновляем текстовый код цвета
+        if (colorCode) {
+            colorCode.textContent = newColor;
+        }
+    }
+    
+    // Переворот к игре
+    function flipToColorGame() {
+        colorCard.classList.add('flipped');
+        // При первом открытии генерируем случайный цвет
+        setTimeout(() => {
+            if (cardBack && !cardBack.style.backgroundColor) {
+                updateColor();
+            }
+        }, 200);
+    }
+    
+    function flipFromColor() {
+        colorCard.classList.remove('flipped');
+    }
+    
+    // Привязка элементов и обработчиков
+    function bindColorEvents() {
+        cardBack = document.getElementById('colorCardBack');
+        colorPreview = document.getElementById('colorPreview');
+        colorCode = document.getElementById('colorCode');
+        generateBtn = document.getElementById('generateColorBtn');
+        backBtn = document.getElementById('backFromColorBtn');
+        
+        if (generateBtn) {
+            generateBtn.addEventListener('click', updateColor);
+        }
+        if (backBtn) {
+            backBtn.addEventListener('click', flipFromColor);
+        }
+    }
+    
+    const playColorBtn = colorCard.querySelector('.play-random-color');
+    if (playColorBtn) {
+        playColorBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            flipToColorGame();
+        });
+    }
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', bindColorEvents);
+    } else {
+        bindColorEvents();
+    }
+})();
 
   // ----- Остальные функции сайта -----
   function highlightElement(element) {
@@ -625,17 +711,6 @@
     });
   });
 
-  const startBtn = document.querySelector('.header__button-start');
-  if (startBtn) {
-    startBtn.addEventListener('click', () => {
-      const gamesSection = document.querySelector('.games-section');
-      if (gamesSection) {
-        gamesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      } else {
-        alert('Добро пожаловать! Список игр ниже ↓');
-      }
-    });
-  }
 
   // Общий обработчик для кнопок "Играть!" (исключая кастомные игры)
 const allPlayButtons = document.querySelectorAll('.mini-game-card__button-play');
@@ -645,7 +720,8 @@ allPlayButtons.forEach((btn) => {
         btn.classList.contains('play-simple-math') ||
         btn.classList.contains('play-reverse-text') ||
         btn.classList.contains('play-quiz') ||
-        btn.classList.contains('play-rps')) {
+        btn.classList.contains('play-rps') ||
+        btn.classList.contains('play-random-color')) {
         return;
     }
     btn.addEventListener('click', (e) => {
@@ -655,4 +731,50 @@ allPlayButtons.forEach((btn) => {
         alert(`✨ Запуск "${gameTitle}"\nЗдесь будет логика игры. ✨`);
     });
 });
+ const audio = new Audio('./audio/race-car.mp3');
+let isPlaying = false;
+
+function playRaceCarSound() {
+  try {
+    audio.currentTime = 0; // перемотка в начало
+    audio.volume = 0.5;
+    
+    // Останавливаем через 2,5 секунд (если звук ещё играет)
+    if (isPlaying) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+    
+    audio.play();
+    isPlaying = true;
+    
+    setTimeout(() => {
+      if (!audio.paused) {
+        audio.pause();
+        audio.currentTime = 0;
+        isPlaying = false;
+      }
+    }, 2500); // 2,5 секунд
+  } catch (e) {
+    console.warn('Звук не поддерживается', e);
+  }
+}
+
+  // Кнопка "Поехали!" – звук + плавная прокрутка
+  const startBtn = document.querySelector('.header__button-start');
+  if (startBtn) {
+    startBtn.addEventListener('click', () => {
+      playRaceCarSound(); // звук гоночного болида
+      
+      // Прокрутка к секции "Об играх" через 0.1с для плавности звука
+      setTimeout(() => {
+        const gamesSection = document.querySelector('.games-section');
+        if (gamesSection) {
+          gamesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else {
+          alert('Добро пожаловать! Список игр ниже ↓');
+        }
+      }, 100);
+    });
+  }
 })();
