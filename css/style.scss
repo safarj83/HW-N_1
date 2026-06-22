@@ -1,0 +1,1785 @@
+@import "main";
+
+/*Основные стили*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+input,
+button,
+select {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #202027;
+  /* фон для всего сайта, как на макете */
+}
+
+.center {
+  padding-left: calc(50% - 600px);
+  padding-right: calc(50% - 600px);
+}
+
+
+/* ===== ХЕДЕР ===== */
+.header {
+  height: 710px;
+  background-color: #E1FF8F;
+  background-image: url(../images/main\ start.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+
+  /*Хеадер (Шапка сайта)*/
+  &__wrapper {
+    /* вместо фиксированной ширины — максимальная */
+    max-width: 769px;
+    height: 358px;
+    padding-top: 196px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 64px;
+    color: #202027;
+    margin-bottom: 24px;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 24px;
+    color: #202027;
+    margin-bottom: 48px;
+  }
+
+  &__button {
+    padding: 16px 65px;
+    border: none;
+    border-radius: 60px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  &__button-start {
+    background-color: #202027;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  &__button-start:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+  }
+
+}
+
+/* ===== СЕКЦИЯ «ОБ ИГРАХ» ===== */
+.games-section {
+  background-color: #202027;
+  padding-bottom: 94px;
+  background-image: url(../images/mini\ -images.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top 77px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 64px;
+    color: #ffffff;
+    padding-top: 94px;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    max-width: 788px;
+    font-weight: 400;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 72px;
+    line-height: 1.4;
+  }
+
+  &__grid {
+    columns: 3;
+    column-gap: 32px;
+    margin-bottom: 32px;
+
+
+  }
+
+}
+
+/*=====КАРТОЧКИ=====*/
+.game-card {
+  width: 378px;
+  height: 473px;
+  margin-bottom: 32px;
+  display: block;
+  text-decoration: none;
+  grid-template-columns: 1fr 1fr;
+  /* Изображение и текст — по 50% */
+  gap: 20px;
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &-big {
+    width: 378px;
+    height: 512px;
+    grid-template-columns: 1fr 1fr;
+    /* Изображение и текст — по 50% */
+    gap: 20px;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &-big:hover {
+    transform: translateY(-3px);
+  }
+
+  &__image-wrapper {
+    overflow: hidden;
+    width: 378px;
+    height: 314px;
+
+  }
+
+  &__image {
+    width: 100%;
+    height: 314px;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__content {
+    padding-left: 32px;
+    width: 378px;
+    height: 198px;
+    background-color: white;
+    border-radius: 0 0 30px 30px;
+  }
+
+  &__number {
+    font-weight: 500;
+    font-size: 16px;
+    color: #202027;
+
+
+  }
+
+  &__number-block {
+    display: flex;
+    justify-content: center;
+    /* по горизонтали (дублирует text-align, можно оставить одно) */
+    align-items: center;
+    /* Серый фон */
+    background-color: #f7f7f7;
+    /* светло-серый, можно поменять на нужный оттенок */
+    /* Скруглённые углы как на изображении */
+    border-radius: 52.58px;
+    /* Отступы вокруг блока */
+    box-sizing: border-box;
+    /* Ширина и высота (по необходимости) */
+    width: 108px;
+    /* можно задать любую ширину */
+    height: 36px;
+    margin-top: 32px;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 32px;
+    color: #202032;
+    margin-top: 16px;
+  }
+}
+
+/* ===== СЕКЦИЯ «МИНИ-ИГРЫ» ===== */
+.mini-games__section {
+  background-color: #202027;
+  padding-bottom: 94px;
+  background-image: url(../images/mini\ -images.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top 77px;
+  margin-bottom: 144px;
+}
+
+.mini-games-section__title {
+  font-weight: 700;
+  font-size: 64px;
+  color: #ffffff;
+  margin-bottom: 72px;
+
+}
+
+.mini-games-section__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+/* ===== КАРТОЧКИ «МИНИ-ИГРЫ» ===== */
+.mini-game-card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #fff;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.mini-game-card:hover {
+  transform: translateY(-3px);
+}
+
+
+.mini-game-card__content {
+  padding: 48px 48px 203px;
+  width: 504px;
+  height: 249px;
+}
+
+.mini-game-card__title {
+  font-weight: 700;
+  font-size: 48px;
+  color: #202027;
+  margin-bottom: 24px;
+}
+
+.mini-game-card__description {
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 36px;
+}
+
+.mini-game-card__button {
+  padding: 16px 75px;
+  border: none;
+  border-radius: 60px;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mini-game-card__button-play {
+  background-color: #202027;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mini-game-card__button-play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card__content,
+.mini-game-card__image-wrapper {
+  flex: 1;
+  /* Каждая часть занимает 50% ширины */
+  max-width: 50%;
+  /* Ограничиваем ширину */
+}
+
+.mini-game-card__image-wrapper {
+  display: flex;
+  justify-content: center;
+  /* Центрируем картинку */
+  align-items: center;
+  /* Центрируем по вертикали */
+}
+
+.mini-game-card__image {
+  width: 100%;
+  /* Картинка занимает всю ширину блока */
+  height: auto;
+  /* Сохраняем пропорции */
+  border-radius: 8px;
+  /* Скругление углов */
+  object-fit: cover;
+  /* Заполняем блок, обрезая лишнее */
+}
+/* ===== 3D ПЕРЕВОРОТ ДЛЯ КАРТОЧКИ "УГАДАЙ ЧИСЛО" ===== */
+.mini-game-card#game-guess-number {
+  perspective: 1500px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mini-game-card#game-guess-number .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 30px;
+}
+
+.mini-game-card#game-guess-number.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.mini-game-card#game-guess-number .card-front,
+.mini-game-card#game-guess-number .card-back {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-guess-number .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  background-image:url(../images/path-to-your-image-1.jpg) ;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Затемнение фона для читаемости текста */
+.mini-game-card#game-guess-number .card-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 30px;
+  z-index: 1;
+}
+
+/* Все элементы внутри .card-back должны быть выше затемнения */
+.mini-game-card#game-guess-number .card-back > * {
+  position: relative;
+  z-index: 2;
+}
+/* Содержимое игры на задней стороне */
+.game-container {
+  padding: 40px 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.game-title {
+  font-weight: 700;
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.game-description {
+  font-size: 18px;
+  color: #f0f0f0;
+  margin-bottom: 32px;
+}
+
+.game-input-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.guess-input {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: 2px solid #ddd;
+  border-radius: 60px;
+  width: 180px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  transition: 0.2s;
+}
+
+.guess-input:focus {
+  border-color: #bcec30;
+}
+
+.game-button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 60px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.check-btn {
+  background-color: #202027;
+  color: white;
+}
+
+.check-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.new-game-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.new-game-btn:hover {
+  background-color: #45a049;
+}
+
+.back-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+.back-btn:hover {
+  background-color: #fb8c00;
+}
+
+.game-feedback {
+  margin: 20px 0;
+  min-height: 80px;
+}
+
+.feedback-message {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #202027;
+}
+
+.attempts-count {
+  font-size: 18px;
+  color: #666;
+}
+
+.game-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 767px) {
+  .mini-game-card#game-guess-number .card-front,
+  .mini-game-card#game-guess-number .card-back {
+    flex-direction: column;
+  }
+  
+  .game-container {
+    padding: 30px 20px;
+  }
+  
+  .game-title {
+    font-size: 28px;
+  }
+  
+  .guess-input {
+    width: 100%;
+  }
+  
+  .game-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .game-actions {
+    flex-direction: column;
+  }
+}
+/* ===== 3D ПЕРЕВОРОТ ДЛЯ КАРТОЧКИ "ПРОСТАЯ АРИФМЕТИКА" ===== */
+.mini-game-card#game-simple-math {
+  perspective: 1500px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mini-game-card#game-simple-math .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 30px;
+}
+
+.mini-game-card#game-simple-math.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.mini-game-card#game-simple-math .card-front,
+.mini-game-card#game-simple-math .card-back {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-simple-math .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  background-image:url(../images/path-to-your-image-2.jpg) ;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* Затемнение фона для читаемости текста */
+.mini-game-card#game-simple-math .card-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 30px;
+  z-index: 1;
+}
+
+/* Все элементы внутри .card-back должны быть выше затемнения */
+.mini-game-card#game-simple-math .card-back > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Стили для арифметической игры на задней стороне */
+.mini-game-card#game-simple-math .game-container {
+  padding: 40px 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.mini-game-card#game-simple-math .game-title {
+  font-weight: 700;
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.mini-game-card#game-simple-math .game-description {
+  font-size: 18px;
+  color: #f0f0f0;
+  margin-bottom: 32px;
+}
+
+/* Стили для отображения арифметического вопроса */
+.math-question {
+  margin-bottom: 32px;
+}
+
+.question-text {
+  font-size: 48px;
+  font-weight: 800;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 20px 30px;
+  border-radius: 60px;
+  display: inline-block;
+  letter-spacing: 4px;
+}
+
+.mini-game-card#game-simple-math .game-input-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.mini-game-card#game-simple-math .guess-input {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: 2px solid #ddd;
+  border-radius: 60px;
+  width: 180px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  transition: 0.2s;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.mini-game-card#game-simple-math .guess-input:focus {
+  border-color: #bcec30;
+}
+
+.mini-game-card#game-simple-math .game-button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 60px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.mini-game-card#game-simple-math .check-btn {
+  background-color: #202027;
+  color: white;
+}
+
+.mini-game-card#game-simple-math .check-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-simple-math .new-game-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.mini-game-card#game-simple-math .new-game-btn:hover {
+  background-color: #45a049;
+}
+
+.mini-game-card#game-simple-math .back-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+.mini-game-card#game-simple-math .back-btn:hover {
+  background-color: #fb8c00;
+}
+
+.mini-game-card#game-simple-math .game-feedback {
+  margin: 20px 0;
+  min-height: 80px;
+}
+
+.mini-game-card#game-simple-math .feedback-message {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.mini-game-card#game-simple-math .attempts-count {
+  font-size: 18px;
+  color: #dddddd;
+}
+
+.mini-game-card#game-simple-math .game-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 767px) {
+  .mini-game-card#game-simple-math .card-front,
+  .mini-game-card#game-simple-math .card-back {
+    flex-direction: column;
+  }
+  
+  .mini-game-card#game-simple-math .game-container {
+    padding: 30px 20px;
+  }
+  
+  .mini-game-card#game-simple-math .game-title {
+    font-size: 28px;
+  }
+  
+  .mini-game-card#game-simple-math .guess-input {
+    width: 100%;
+  }
+  
+  .mini-game-card#game-simple-math .game-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .mini-game-card#game-simple-math .game-actions {
+    flex-direction: column;
+  }
+  
+  .question-text {
+    font-size: 36px;
+    padding: 15px 20px;
+  }
+  
+  .math-question {
+    margin-bottom: 24px;
+  }
+}
+/* ===== 3D ПЕРЕВОРОТ ДЛЯ КАРТОЧКИ "ПЕРЕВЕРНИ ТЕКСТ" ===== */
+.mini-game-card#game-reverse-text {
+  perspective: 1500px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mini-game-card#game-reverse-text .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 30px;
+}
+
+.mini-game-card#game-reverse-text.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.mini-game-card#game-reverse-text .card-front,
+.mini-game-card#game-reverse-text .card-back {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-reverse-text .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  background-image: url(../images/path-to-your-image-3.jpg);
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Затемнение фона для читаемости текста */
+.mini-game-card#game-reverse-text .card-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 30px;
+  z-index: 1;
+}
+
+/* Все элементы внутри .card-back должны быть выше затемнения */
+.mini-game-card#game-reverse-text .card-back > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Стили для игры на задней стороне */
+.mini-game-card#game-reverse-text .game-container {
+  padding: 40px 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.mini-game-card#game-reverse-text .game-title {
+  font-weight: 700;
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.mini-game-card#game-reverse-text .game-description {
+  font-size: 18px;
+  color: #f0f0f0;
+  margin-bottom: 32px;
+}
+
+.mini-game-card#game-reverse-text .game-input-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.mini-game-card#game-reverse-text .guess-input {
+  padding: 12px 20px;
+  font-size: 18px;
+  border: 2px solid #ddd;
+  border-radius: 60px;
+  width: 250px;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  transition: 0.2s;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+.mini-game-card#game-reverse-text .guess-input:focus {
+  border-color: #bcec30;
+}
+
+.mini-game-card#game-reverse-text .game-button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 60px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.mini-game-card#game-reverse-text .check-btn {
+  background-color: #202027;
+  color: white;
+}
+
+.mini-game-card#game-reverse-text .check-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-reverse-text .new-game-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.mini-game-card#game-reverse-text .new-game-btn:hover {
+  background-color: #45a049;
+}
+
+.mini-game-card#game-reverse-text .back-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+.mini-game-card#game-reverse-text .back-btn:hover {
+  background-color: #fb8c00;
+}
+
+.mini-game-card#game-reverse-text .game-feedback {
+  margin: 20px 0;
+  min-height: 80px;
+}
+
+.mini-game-card#game-reverse-text .feedback-message {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #ffffff;
+  word-break: break-all;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 767px) {
+  .mini-game-card#game-reverse-text .card-front,
+  .mini-game-card#game-reverse-text .card-back {
+    flex-direction: column;
+  }
+  
+  .mini-game-card#game-reverse-text .game-container {
+    padding: 30px 20px;
+  }
+  
+  .mini-game-card#game-reverse-text .game-title {
+    font-size: 28px;
+  }
+  
+  .mini-game-card#game-reverse-text .guess-input {
+    width: 100%;
+  }
+  
+  .mini-game-card#game-reverse-text .game-input-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .mini-game-card#game-reverse-text .game-actions {
+    flex-direction: column;
+  }
+}
+/* ===== 3D ПЕРЕВОРОТ ДЛЯ КАРТОЧКИ "КАМЕНЬ, НОЖНИЦЫ, БУМАГА" ===== */
+.mini-game-card#game-rock-paper-scissors {
+  perspective: 1500px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mini-game-card#game-rock-paper-scissors .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 30px;
+}
+
+.mini-game-card#game-rock-paper-scissors.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.mini-game-card#game-rock-paper-scissors .card-front,
+.mini-game-card#game-rock-paper-scissors .card-back {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-rock-paper-scissors .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  background-image: url(../images/path-to-your-image-4.jpg);
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Затемнение фона для читаемости текста */
+.mini-game-card#game-rock-paper-scissors .card-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.65);
+  border-radius: 30px;
+  z-index: 1;
+}
+
+/* Все элементы внутри .card-back должны быть выше затемнения */
+.mini-game-card#game-rock-paper-scissors .card-back > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Стили для игры на задней стороне */
+.mini-game-card#game-rock-paper-scissors .game-container {
+  padding: 40px 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.mini-game-card#game-rock-paper-scissors .game-title {
+  font-weight: 700;
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.mini-game-card#game-rock-paper-scissors .game-description {
+  font-size: 18px;
+  color: #f0f0f0;
+  margin-bottom: 32px;
+}
+
+/* Стили для кнопок выбора */
+.rps-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.rps-choice-btn {
+  padding: 15px 25px;
+  font-size: 18px;
+  font-weight: 600;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.rps-choice-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.rps-choice-btn:active {
+  transform: translateY(0);
+}
+
+/* Стили для игровой обратной связи */
+.mini-game-card#game-rock-paper-scissors .game-feedback {
+  margin: 20px 0;
+  min-height: 120px;
+}
+
+.mini-game-card#game-rock-paper-scissors .feedback-message {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 12px;
+  color: #ffffff;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+.mini-game-card#game-rock-paper-scissors .attempts-count {
+  font-size: 18px;
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* Стили для кнопок управления */
+.mini-game-card#game-rock-paper-scissors .game-button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 60px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.mini-game-card#game-rock-paper-scissors .new-game-btn {
+  background-color: #4caf50;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mini-game-card#game-rock-paper-scissors .new-game-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-rock-paper-scissors .back-btn {
+  background-color: #ff9800;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mini-game-card#game-rock-paper-scissors .back-btn:hover {
+  background-color: #fb8c00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-rock-paper-scissors .game-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 767px) {
+  .mini-game-card#game-rock-paper-scissors .card-front,
+  .mini-game-card#game-rock-paper-scissors .card-back {
+    flex-direction: column;
+  }
+  
+  .mini-game-card#game-rock-paper-scissors .game-container {
+    padding: 30px 20px;
+  }
+  
+  .mini-game-card#game-rock-paper-scissors .game-title {
+    font-size: 28px;
+  }
+  
+  .mini-game-card#game-rock-paper-scissors .game-description {
+    font-size: 16px;
+  }
+  
+  /* Кнопки выбора в колонку на мобильных */
+  .rps-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+  
+  .rps-choice-btn {
+    padding: 12px 20px;
+    font-size: 16px;
+  }
+  
+  /* Кнопки управления в колонку */
+  .mini-game-card#game-rock-paper-scissors .game-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  /* Размер шрифта для сообщений */
+  .mini-game-card#game-rock-paper-scissors .feedback-message {
+    font-size: 14px;
+  }
+  
+  .mini-game-card#game-rock-paper-scissors .attempts-count {
+    font-size: 16px;
+  }
+}
+/* ===== 3D ПЕРЕВОРОТ ДЛЯ КАРТОЧКИ "ВИКТОРИНА" ===== */
+.mini-game-card#game-quiz {
+  perspective: 1500px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mini-game-card#game-quiz .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 30px;
+}
+
+.mini-game-card#game-quiz.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.mini-game-card#game-quiz .card-front,
+.mini-game-card#game-quiz .card-back {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-quiz .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  background-image: url(../images/path-to-your-image-5.jpg);
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Затемнение фона для читаемости текста */
+.mini-game-card#game-quiz .card-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 30px;
+  z-index: 1;
+}
+
+/* Все элементы внутри .card-back должны быть выше затемнения */
+.mini-game-card#game-quiz .card-back > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Стили для викторины на задней стороне */
+.mini-game-card#game-quiz .game-container {
+  padding: 40px 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.mini-game-card#game-quiz .game-title {
+  font-weight: 700;
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 16px;
+}
+
+.mini-game-card#game-quiz .game-description {
+  font-size: 18px;
+  color: #f0f0f0;
+  margin-bottom: 32px;
+}
+
+.mini-game-card#game-quiz .quiz-buttons {
+  margin: 20px 0;
+}
+
+.mini-game-card#game-quiz .game-button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 60px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.mini-game-card#game-quiz .check-btn {
+  background-color: #202027;
+  color: white;
+  padding: 16px 40px;
+  font-size: 20px;
+}
+
+.mini-game-card#game-quiz .check-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-quiz .back-btn {
+  background-color: #ff9800;
+  color: white;
+}
+
+.mini-game-card#game-quiz .back-btn:hover {
+  background-color: #fb8c00;
+}
+
+.mini-game-card#game-quiz .game-feedback {
+  margin: 20px 0;
+  min-height: 80px;
+}
+
+.mini-game-card#game-quiz .feedback-message {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #ffffff;
+}
+
+.mini-game-card#game-quiz .game-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 767px) {
+  .mini-game-card#game-quiz .card-front,
+  .mini-game-card#game-quiz .card-back {
+    flex-direction: column;
+  }
+  
+  .mini-game-card#game-quiz .game-container {
+    padding: 30px 20px;
+  }
+  
+  .mini-game-card#game-quiz .game-title {
+    font-size: 28px;
+  }
+  
+  .mini-game-card#game-quiz .game-actions {
+    flex-direction: column;
+  }
+  
+  .mini-game-card#game-quiz .check-btn {
+    padding: 14px 30px;
+    font-size: 18px;
+  }
+}
+/* ===== 3D ПЕРЕВОРОТ ДЛЯ КАРТОЧКИ "ГЕНЕРАТОР СЛУЧАЙНЫХ ЦВЕТОВ" ===== */
+.mini-game-card#game-random-color {
+  perspective: 1500px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.mini-game-card#game-random-color .card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  border-radius: 30px;
+}
+
+.mini-game-card#game-random-color.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.mini-game-card#game-random-color .card-front,
+.mini-game-card#game-random-color .card-back {
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  backface-visibility: hidden;
+  border-radius: 30px;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-random-color .card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  background-image: url(../images/path-to-your-image-6.jpg);
+
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.5s ease;
+}
+
+/* Затемнение фона для читаемости текста (оно будет скрываться, когда цвет меняется) */
+.mini-game-card#game-random-color .card-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 30px;
+  z-index: 1;
+  transition: opacity 0.5s ease;
+}
+
+.mini-game-card#game-random-color .card-back.color-changed::before {
+  opacity: 0; /* скрываем затемнение, когда цвет активен */
+}
+
+.mini-game-card#game-random-color .card-back > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Стили для содержимого игры */
+.mini-game-card#game-random-color .game-container {
+  padding: 40px 30px;
+  width: 100%;
+  text-align: center;
+}
+
+.mini-game-card#game-random-color .game-title {
+  font-weight: 700;
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 16px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.mini-game-card#game-random-color .game-description {
+  font-size: 18px;
+  color: #f0f0f0;
+  margin-bottom: 32px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Блок отображения цвета */
+.color-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+.color-preview {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.8);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: background-color 0.5s ease;
+  margin-bottom: 16px;
+}
+
+.color-code {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  background: rgba(0,0,0,0.4);
+  padding: 8px 20px;
+  border-radius: 30px;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+  backdrop-filter: blur(4px);
+}
+
+/* Кнопка генерации цвета */
+.generate-color-btn {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 16px 40px;
+  font-size: 20px;
+  border: none;
+  border-radius: 60px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.4);
+}
+
+.generate-color-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(245, 87, 108, 0.6);
+}
+
+.generate-color-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.mini-game-card#game-random-color .game-button {
+  padding: 12px 28px;
+  border: none;
+  border-radius: 60px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Montserrat", sans-serif;
+}
+
+.mini-game-card#game-random-color .back-btn {
+  background-color: #ff9800;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mini-game-card#game-random-color .back-btn:hover {
+  background-color: #fb8c00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card#game-random-color .game-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Адаптация для мобильных устройств */
+@media (max-width: 767px) {
+  .mini-game-card#game-random-color .card-front,
+  .mini-game-card#game-random-color .card-back {
+    flex-direction: column;
+  }
+  
+  .mini-game-card#game-random-color .game-container {
+    padding: 30px 20px;
+  }
+  
+  .mini-game-card#game-random-color .game-title {
+    font-size: 28px;
+  }
+  
+  .color-preview {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .color-code {
+    font-size: 20px;
+    padding: 6px 16px;
+  }
+  
+  .generate-color-btn {
+    padding: 14px 30px;
+    font-size: 18px;
+    width: 100%;
+  }
+  
+  .mini-game-card#game-random-color .game-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+.footer {
+  height: 150px;
+  background-color: #bded35;
+  /* Тёмный фон, как на макете */
+  padding: 20px 0;
+  /* Отступы сверху/снизу */
+  text-align: center;
+  /* Выравнивание текста по центру */
+  margin-top: 144px;
+}
+
+.footer__copyright {
+  color: #000;
+  /* Белый цвет текста для контраста */
+  font-family: 'Montserrat', sans-serif;
+  /* Шрифт из макета */
+  font-weight: 600;
+  /* Жирный шрифт */
+  font-size: 24px;
+  /* Размер шрифта как на макете */
+  line-height: 1;
+  /* Межстрочный интервал */
+  margin: 0;
+  /* Убираем стандартные отступы p */
+}
+/*Общие стили*/ 
+@media (max-width: 767px) {
+  .center {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+}
+/* Хедер */
+@media (max-width: 767px) {
+.header {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 700px;
+    background-color: #E1FF8F;
+  background-image: url(../images/main\ start.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+}
+
+.header__wrapper {
+  height: 371px;
+  max-width: 343px;
+  padding-top: 147px;
+}
+
+.header__title {
+display: -webkit-inline-box;
+  width: 296px;
+  font-weight: 700;
+  font-size: 40px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.header__subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 36px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.header__button {
+  width: 285px;
+  padding: 16px 103.5px;
+  font-weight: 600;
+  font-size: 16px;
+  
+}
+
+}
+@media (max-width: 767px) {
+.games-section {
+  display: none;
+}
+
+}
+
+/* ===== СЕКЦИЯ «МИНИ-ИГРЫ» ===== */
+@media (max-width: 767px) {
+  .mini-games__section {
+    background-color: #202027;
+    padding-bottom: 94px;
+    background-image: url(../images/mini-images.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top 77px;
+    margin-bottom: 144px;
+  }
+
+  .mini-games-section__title {
+    font-weight: 700;
+    font-size: 40px;
+    color: #ffffff;
+    margin-top: 48px; 
+  }
+
+  .mini-games-section__grid {
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение карточек */
+    gap: 24px; /* Отступы между карточками */
+  }
+
+
+/* ===== КАРТОЧКИ «МИНИ-ИГРЫ» ===== */
+.mini-game-card {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%; /* Занимают всю ширину экрана */
+  height: auto; /* Убрали жёсткую высоту — теперь зависит от контента */
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.mini-game-card:hover {
+  transform: translateY(-3px);
+}
+ .mini-game-card-mob{
+ display: flex;
+ flex-direction: column;
+  width: 100%; /* Занимают всю ширину экрана */
+  height: auto; /* Убрали жёсткую высоту — теперь зависит от контента */
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+ }
+ .mini-game-card-mob:hover {
+  transform: translateY(-3px);
+}
+.mini-game-card__content {
+  padding: 29px 29px 32px;
+  width: 100%; /* Ширина 100% для вертикального макета */
+  height: 221px; 
+}
+
+.mini-game-card__title {
+  font-weight: 700;
+  font-size: 32px;
+  color: #202027;
+  margin-bottom: 16px;
+}
+
+.mini-game-card__description {
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 32px;
+}
+
+.mini-game-card__button {
+  padding: 16px 110px;
+  border: none;
+  border-radius: 60px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%; /* Кнопка занимает всю ширину карточки */
+}
+
+.mini-game-card__button-play {
+  background-color: #202027;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mini-game-card__button-play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Исправляем разметку для вертикального макета */
+.mini-game-card__content,
+.mini-game-card__image-wrapper {
+  flex: 1;
+  max-width: none; /* Убираем ограничение 50% — теперь полноэкранные */
+}
+
+.mini-game-card__image-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ширина 100% для вертикального макета */
+}
+
+.mini-game-card__image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+/* Подсветка карточки мини-игры при переходе */
+.mini-game-card-highlight {
+    box-shadow: 0 0 0 4px #E1FF8F, 0 8px 20px rgba(0, 0, 0, 0.3) !important;
+    transform: scale(1.02);
+    transition: all 0.2s ease;
+}
+
+}
+@media (max-width: 767px) {
+  .footer {
+  background-color: #bded35;
+  /* Тёмный фон, как на макете */
+  padding: 20px 0;
+  /* Отступы сверху/снизу */
+  text-align: center;
+  /* Выравнивание текста по центру */
+  margin-top: 10px
+}
+
+.footer__copyright {
+  color: #000;
+  /* Белый цвет текста для контраста */
+  font-family: 'Montserrat', sans-serif;
+  /* Шрифт из макета */
+  font-weight: 600;
+  /* Жирный шрифт */
+  font-size: 16px;
+  /* Размер шрифта как на макете */
+  line-height: 1;
+  /* Межстрочный интервал */
+  margin: 0;
+  /* Убираем стандартные отступы p */
+}
+}

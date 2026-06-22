@@ -1,0 +1,419 @@
+/*Основные стили*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+a,
+input,
+button,
+select {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #202027;
+  /* фон для всего сайта, как на макете */
+}
+
+.center {
+  padding-left: calc(50% - 600px);
+  padding-right: calc(50% - 600px);
+}
+
+
+/* ===== ХЕДЕР ===== */
+.header {
+  height: 710px;
+  background-color: #E1FF8F;
+  background-image: url(../images/main\ start.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top;
+
+  /*Хеадер (Шапка сайта)*/
+  &__wrapper {
+    /* вместо фиксированной ширины — максимальная */
+    max-width: 769px;
+    height: 358px;
+    padding-top: 196px;
+  }
+
+  &__title {
+    font-weight: 700;
+    font-size: 64px;
+    color: #202027;
+    margin-bottom: 24px;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 24px;
+    color: #202027;
+    margin-bottom: 48px;
+  }
+
+  &__button {
+    padding: 16px 65px;
+    border: 1px;
+    color: #000;
+    border-radius: 60px;
+    font-size: 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  &__button-start {
+    background-color: #202027;
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+/* Инверсия цветов при наведении */
+  &__button-start:hover {
+ background-color: #ffffff;
+  color: #000;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  }
+}
+
+/* ===== СЕКЦИЯ «ОБ ИГРАХ» ===== */
+.games-section {
+  background-color: #202027;
+  padding-bottom: 94px;
+  background-image: url(../images/mini\ -images.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top 77px;
+
+  &__title {
+    font-weight: 700;
+    font-size: 64px;
+    color: #ffffff;
+    padding-top: 94px;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    max-width: 788px;
+    font-weight: 400;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 72px;
+    line-height: 1.4;
+  }
+
+  &__grid {
+    columns: 3;
+    column-gap: 32px;
+    margin-bottom: 32px;
+
+
+  }
+
+}
+/* ===== АНИМИРОВАННАЯ ПОЛОСА (ТИКЕР) ===== */
+.ticker {
+ display: flex;
+ align-items: center;
+  height: 90px;
+  background-color: #bcec30;   /* фон как у секций */
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 16px 0;
+  border-top: 1px solid rgba(225, 255, 143, 0.3);
+  border-bottom: 1px solid rgba(225, 255, 143, 0.3);
+}
+.ticker__star {
+  font-size: 28px;      /* чуть крупнее для акцента */
+  vertical-align: middle;
+}
+.ticker__wrapper {
+  display: flex;
+  gap: 40px;
+  width: fit-content;
+  animation: scrollTicker 20s linear infinite;
+}
+
+.ticker__content {
+  display: flex;
+  gap: 40px;
+}
+
+.ticker__item {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 30px;
+  color: #202027;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Анимация движения влево */
+@keyframes scrollTicker {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Остановка анимации при наведении (по желанию) */
+.ticker:hover .ticker__wrapper {
+  animation-play-state: paused;
+}
+
+/* Мобильная адаптация */
+@media (max-width: 767px) {
+  .ticker {
+    padding: 10px 0;
+  }
+  .ticker__item {
+    font-size: 30px;
+  }
+  .ticker__wrapper {
+    gap: 20px;
+    animation-duration: 15s; /* чуть быстрее для короткой строки */
+  }
+  .ticker__content {
+    gap: 20px;
+  }
+}
+/*===== КАРТОЧКИ =====*/
+.game-card {
+  width: 378px;
+  height: 473px;
+  margin-bottom: 32px;
+
+  grid-template-columns: 1fr 1fr;
+  /* Изображение и текст — по 50% */
+  gap: 20px;
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: #fff;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+
+  &-big {
+    width: 378px;
+    height: 512px;
+    grid-template-columns: 1fr 1fr;
+    /* Изображение и текст — по 50% */
+    gap: 20px;
+    border-radius: 30px;
+    overflow: hidden;
+    background-color: #fff;
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  &-big:hover {
+    transform: translateY(-3px);
+  }
+
+  &__image-wrapper {
+    overflow: hidden;
+    width: 378px;
+    height: 314px;
+
+  }
+
+  &__image {
+    width: 100%;
+    height: 314px;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__content {
+    padding-left: 32px;
+    width: 378px;
+    height: 198px;
+    background-color: white;
+    border-radius: 0 0 30px 30px;
+  }
+
+  &__number {
+    font-weight: 500;
+    font-size: 16px;
+    color: #202027;
+  }
+
+  &__number-block {
+    /* Серый фон */
+    background-color: #f7f7f7;
+    /* светло-серый, можно поменять на нужный оттенок */
+    /* Скруглённые углы как на изображении */
+    border-radius: 52.58px;
+    /* Отступы вокруг блока */
+    box-sizing: border-box;
+    /* Ширина и высота (по необходимости) */
+    width: 108px;
+    /* можно задать любую ширину */
+    height: 36px;
+    margin-top: 32px;
+  }
+
+  &__name {
+    font-weight: 700;
+    font-size: 32px;
+    color: #202032;
+    margin-top: 16px;
+  }
+}
+
+/* ===== СЕКЦИЯ «МИНИ-ИГРЫ» ===== */
+.mini-games__section {
+  background-color: #202027;
+  padding-bottom: 94px;
+  background-image: url(../images/mini\ -images.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top 77px;
+  margin-bottom: 144px;
+}
+
+.mini-games-section__title {
+  font-weight: 700;
+  font-size: 64px;
+  color: #ffffff;
+  margin-bottom: 72px;
+
+}
+
+.mini-games-section__grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+/* ===== КАРТОЧКИ «МИНИ-ИГРЫ» ===== */
+.mini-game-card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background: #fff;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.mini-game-card:hover {
+  transform: translateY(-3px);
+}
+
+
+.mini-game-card__content {
+  padding: 48px 48px 203px;
+  width: 504px;
+  height: 249px;
+}
+
+.mini-game-card__title {
+  font-weight: 700;
+  font-size: 48px;
+  color: #202027;
+  margin-bottom: 24px;
+}
+
+.mini-game-card__description {
+  font-weight: 400;
+  font-size: 24px;
+  margin-bottom: 36px;
+}
+
+.mini-game-card__button {
+  padding: 16px 75px;
+  border: none;
+  border-radius: 60px;
+  font-size: 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mini-game-card__button-play {
+  background-color: #202027;
+  color: #ffffff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.mini-game-card__button-play:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.mini-game-card__content,
+.mini-game-card__image-wrapper {
+  flex: 1;
+  /* Каждая часть занимает 50% ширины */
+  max-width: 50%;
+  /* Ограничиваем ширину */
+}
+
+.mini-game-card__image-wrapper {
+  display: flex;
+  justify-content: center;
+  /* Центрируем картинку */
+  align-items: center;
+  /* Центрируем по вертикали */
+}
+
+.mini-game-card__image {
+  width: 100%;
+  /* Картинка занимает всю ширину блока */
+  height: auto;
+  /* Сохраняем пропорции */
+  border-radius: 8px;
+  /* Скругление углов */
+  object-fit: cover;
+  /* Заполняем блок, обрезая лишнее */
+}
+
+.footer {
+  height: 150px;
+  /*Высота блока */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  /*центрируем текст */
+  background-color: #bded35;
+  /* Тёмный фон, как на макете */
+  padding: 20px 0;
+  /* Отступы сверху/снизу */
+  text-align: center;
+  /* Выравнивание текста по центру */
+  margin-top: 144px;
+}
+
+.footer__copyright {
+  color: #000;
+  /* Белый цвет текста для контраста */
+  font-family: 'Montserrat', sans-serif;
+  /* Шрифт из макета */
+  font-weight: 600;
+  /* Жирный шрифт */
+  font-size: 24px;
+  /* Размер шрифта как на макете */
+  line-height: 1;
+  /* Межстрочный интервал */
+  margin: 0;
+  /* Убираем стандартные отступы p */
+}
